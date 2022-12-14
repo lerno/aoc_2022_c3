@@ -48,7 +48,7 @@ fn Environment* load_environment(EnvType type)
 					continue;
 				}
 				int[<2>] diff = { math::sign(next[0] - last[0]), math::sign(next[1] - last[1]) };
-				while (!$$reduce_and(last == next))
+				while (last != next)
 				{
 					last += diff;
 					env[last[0]][last[1]] = -1;
@@ -81,7 +81,7 @@ fn Result simulate_sand_path(Environment* env, int[<2>] sand)
 			case (!env[sand[0] + 1][sand[1] + 1]):
 				sand += { 1 , 1 };
 			default:
-				if ($$reduce_and(start == sand)) return SAND_CHOKED;
+				if (start == sand) return SAND_CHOKED;
 				env[sand[0]][sand[1]] = 1;
 				return CAME_TO_REST;
 		}
