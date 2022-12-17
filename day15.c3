@@ -4,8 +4,7 @@ import std::math;
 import std::array::list;
 import std::priorityqueue;
 
-define CoordPairList = List<CoordPair>;
-define CoordPair = distinct int[<2>][2];
+define CoordPairList = List<int[<2>][2]>;
 
 fn int[<2>]! parse_coord(char[] s)
 {
@@ -39,7 +38,7 @@ fn void part1(CoordPairList list)
 	const int Y_TARGET = 2000000;
 	int max_x;
 	int min_x;
-	foreach (i, CoordPair pair : list)
+	foreach (i, pair : list)
 	{
 		int[<2>] sensor_at = pair[0];
 		int[<2>] beacon_at = pair[1];
@@ -53,12 +52,12 @@ fn void part1(CoordPairList list)
 	}
 	int width = max_x - min_x + 1;
 	bool[] array = array::tmake(bool, width);
-	foreach (CoordPair pair : list)
+	foreach (pair : list)
 	{
 		int[<2>] sensor_at = pair[0];
 		int[<2>] beacon_at = pair[1];
 		int[<2>] diff = math::abs(sensor_at - beacon_at);
-		int range = diff[0] + diff[1];
+		int range = diff.sum();
 		int target_diff = math::abs(sensor_at[1] - Y_TARGET);
 		range -= target_diff;
 		if (range < 0) continue;
@@ -80,14 +79,14 @@ fn void part1(CoordPairList list)
 
 fn bool is_covered(int[<2>] loc, CoordPairList list)
 {
-	foreach (CoordPair pair : list)
+	foreach (pair : list)
 	{
 		int[<2>] sensor_at = pair[0];
 		int[<2>] beacon_at = pair[1];
 		int[<2>] diff = math::abs(sensor_at - beacon_at);
 		int[<2>] diff_loc = math::abs(sensor_at - loc);
-		int range = diff[0] + diff[1];
-		int to_loc = diff_loc[0] + diff_loc[1];
+		int range = diff.sum();
+		int to_loc = diff_loc.sum();
 		if (to_loc <= range) return true;
 	}
 	return false;
@@ -97,19 +96,19 @@ fn void part2(CoordPairList list)
 {
 	const int RANGE = 4000000;
 
-	foreach (CoordPair pair : list)
+	foreach (pair : list)
 	{
 		int[<2>] sensor_at = pair[0];
 		int[<2>] beacon_at = pair[1];
 		int[<2>] diff = math::abs(sensor_at - beacon_at);
 		// We only need to search the space directly outside of any
 		// scanner's range for the hidden beacon
-		int range_add = diff[0] + diff[1] + 1;
+		int range_add = diff.sum() + 1;
 		for (int i = -range_add; i <= range_add; i++)
 		{
 			int[<2>] loc = sensor_at + int[<2>] { i, range_add - i };
-			if (loc[0] < 0 || loc[0] >= RANGE) continue;
-			if (loc[1] < 0 || loc[1] >= RANGE) continue;
+			if (loc.comp_lt({ 0, 0 }).or()) continue;
+			if (loc.comp_ge({ RANGE, RANGE }).or()) continue;
 			if (!is_covered(loc, list))
 			{
 				io::printfln("Found beacon at %s", loc);
