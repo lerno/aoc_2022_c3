@@ -101,7 +101,7 @@ macro bool GameRow.bit(GameRow row, int bit)
 
 macro bool GameRow.set_bit(GameRow* row, int bit)
 {
-	return *row |= (GameRow)1 << bit;
+	return (bool)(*row |= (GameRow)1 << bit);
 }
 
 fn int find_height()
@@ -232,7 +232,7 @@ fn void solve(char[] winds, long rocks)
 			int height = find_height();
             int bottom = find_lowest_bound(height);
             StateCache cache = { .shape_index = shape_index, .wind_index = (int)wind_index, .height = height - bottom - 1 };
-            assert(height - bottom < cache.rows.len);
+            assert(height - bottom < (int)cache.rows.len);
             for (int k = bottom; k < height; k++)
             {
             	cache.rows[k - bottom] = game[k];

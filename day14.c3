@@ -43,7 +43,7 @@ fn Environment* load_environment(EnvType type)
 				if (next[1] > max_y) max_y = next[1];
 				if (!last[0])
 				{
-					env[next[0]][next[1]] = -1;
+					(*env)[next[0]][next[1]] = -1;
 					last = next;
 					continue;
 				}
@@ -51,7 +51,7 @@ fn Environment* load_environment(EnvType type)
 				while (last != next)
 				{
 					last += diff;
-					env[last[0]][last[1]] = -1;
+					(*env)[last[0]][last[1]] = -1;
 				}
 			}
         };
@@ -60,7 +60,7 @@ fn Environment* load_environment(EnvType type)
     {
         for (int i = 0; i < ENV_SIDE; i++)
         {
-            env[i][max_y + 2] = -1;
+            (*env)[i][max_y + 2] = -1;
         }
     }
     return env;
@@ -74,15 +74,15 @@ fn Result simulate_sand_path(Environment* env, int[<2>] sand)
 	{
 		switch
 		{
-			case (!env[sand[0]][sand[1] + 1]):
+			case (!(*env)[sand[0]][sand[1] + 1]):
 				sand[1]++;
-			case (!env[sand[0] - 1][sand[1] + 1]):
+			case (!(*env)[sand[0] - 1][sand[1] + 1]):
 				sand += { -1, 1 };
-			case (!env[sand[0] + 1][sand[1] + 1]):
+			case (!(*env)[sand[0] + 1][sand[1] + 1]):
 				sand += { 1 , 1 };
 			default:
 				if (start == sand) return SAND_CHOKED;
-				env[sand[0]][sand[1]] = 1;
+				(*env)[sand[0]][sand[1]] = 1;
 				return CAME_TO_REST;
 		}
 		if (sand[1] == ENV_SIDE - 1 || sand[0] == 0 || sand[0] == ENV_SIDE - 1) return LOST_IN_ABYSS;
