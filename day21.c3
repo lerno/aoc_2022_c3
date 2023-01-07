@@ -5,7 +5,7 @@ import std::map;
 import std::array::list;
 
 define MonkeyList = List<Monkey>;
-define NameMap = HashMap<char[], MonkeyId>;
+define NameMap = HashMap<String, MonkeyId>;
 
 enum Action
 {
@@ -21,14 +21,14 @@ define MonkeyId = distinct int;
 struct Monkey
 {
 	MonkeyId id;
-	char[] name;
+	String name;
 	Action action;
 	bool is_human;
 	bool had_human;
 	union
 	{
 		Monkey*[2] other_monkey;
-		char[][2] other_monkey_unresolved;
+		String[2] other_monkey_unresolved;
 		long value;
 	}
 }
@@ -45,9 +45,9 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
-			char[][] parts = str::tsplit(line, ": ");
-			char[] name = str::copy(parts[0]);
+			String line = f.tgetline();
+			String[] parts = str::tsplit(line, ": ");
+			String name = str::copy(parts[0]);
 			if (name == "root")
 			{
 				*root_index = index;

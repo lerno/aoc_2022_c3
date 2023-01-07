@@ -1,9 +1,9 @@
 module day4;
 import std::io;
 
-fn int[2]! parse_range(char[] range)
+fn int[2]! parse_range(String range)
 {
-	char[][] ranges = str::tsplit(range, "-");
+	String[] ranges = str::tsplit(range, "-");
 	assert(ranges.len == 2);
 	return { str::to_int(ranges[0]), str::to_int(ranges[1]) };
 }
@@ -28,8 +28,8 @@ fn void part1()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
-			char[][] parts = str::tsplit(line, ",");
+			String line = f.tgetline();
+			String[] parts = str::tsplit(line, ",");
 			assert(parts.len == 2);
 
 			int[2] range1 = parse_range(parts[0])!!;
@@ -51,8 +51,8 @@ fn void part2()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
-			char[][] parts = str::tsplit(line, ",");
+			String line = f.tgetline();
+			String[] parts = str::tsplit(line, ",");
 			assert(parts.len == 2);
 
 			int[2] range1 = parse_range(parts[0])!!;

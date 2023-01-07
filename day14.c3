@@ -18,9 +18,9 @@ enum EnvType
 	INFINITY_CUTOFF
 }
 
-fn int[<2>]! str_to_coord(char[] str)
+fn int[<2>]! str_to_coord(String str)
 {
-	char[][] parts = str::tsplit(str, ",");
+	String[] parts = str::tsplit(str, ",");
 	return { str::to_int(parts[0]), str::to_int(parts[1]) };
 }
 
@@ -35,7 +35,7 @@ fn Environment* load_environment(EnvType type)
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			int[<2>] last = { 0, 0 };
 			foreach (part : str::tsplit(line, " -> "))
 			{

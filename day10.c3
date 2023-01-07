@@ -44,8 +44,8 @@ fn void part2()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
-            char[][] commands = str::tsplit(line, " ");
+			String line = f.tgetline();
+            String[] commands = str::tsplit(line, " ");
             switch (commands[0])
             {
                 case "noop":
@@ -76,8 +76,8 @@ fn void part1()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
-            char[][] commands = str::tsplit(line, " ");
+			String line = f.tgetline();
+            String[] commands = str::tsplit(line, " ");
             switch (commands[0])
             {
                 case "noop":

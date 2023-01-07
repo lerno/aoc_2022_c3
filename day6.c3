@@ -21,7 +21,7 @@ fn void find_packet_start(int check_len)
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			int len = line.len;
 			for OUTER: (int i = 0; i < len - check_len; i++)
 			{

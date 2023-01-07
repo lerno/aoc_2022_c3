@@ -2,7 +2,7 @@ module day8;
 import std::array::list;
 import std::io;
 
-define Forest = distinct List<char[]>;
+define Forest = distinct List<String>;
 fn Forest* parse_forest()
 {
 	File f;
@@ -12,7 +12,7 @@ fn Forest* parse_forest()
 	forest.init(512);
 	while (!f.eof())
 	{
-		char[] line = f.tgetline();
+		String line = f.tgetline();
 		assert(line.len);
 		forest.append(line);
 	}
@@ -26,7 +26,7 @@ fn int Forest.is_visible(Forest* this, int x, int y)
 	if (y == last_y) return 5;
 	isz last_x = this.get(0).len - 1;
 	if (x == last_x) return 5;
-	char[] row = this.get(y);
+	String row = this.get(y);
 	char height = row[x];
 	int directions_seen_from = 0;
 	do FROM_WEST: {
@@ -64,7 +64,7 @@ fn int Forest.scenic_score(Forest* this, int x, int y)
 {
 	isz last_y = this.len() - 1;
 	isz last_x = this.get(0).len - 1;
-	char[] row = this.get(y);
+	String row = this.get(y);
 	char height = row[x];
 	int scenic_score;
 	int score = 0;
@@ -104,7 +104,7 @@ fn int Forest.visible_from_outside(Forest* forest)
 	int sum;
 	for (int y = 0; y < height; y++)
 	{
-		char[] line = forest.get(y);
+		String line = forest.get(y);
 		assert(line.len == width);
 		for (int x = 0; x < width; x++)
 		{

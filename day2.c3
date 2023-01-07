@@ -26,7 +26,7 @@ fault InvalidData
 	FAILED
 }
 
-fn Choice[2]! choicesFromString(char[] line)
+fn Choice[2]! choicesFromString(String line)
 {
 	if (line.len != 3) return InvalidData.FAILED!;
 	char c1 = line[0];
@@ -36,7 +36,7 @@ fn Choice[2]! choicesFromString(char[] line)
 	return { (Choice)(c1 - 'A'), (Choice)(c2 - 'X') };
 }
 
-fn Select! selectFromString(char[] line)
+fn Select! selectFromString(String line)
 {
 	if (line.len != 3) return InvalidData.FAILED!;
 	char c1 = line[0];
@@ -57,7 +57,7 @@ fn void part1()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			Choice[2] c = choicesFromString(line)!!;
 			points += c[1].ordinal + 1;
 			// Draw
@@ -87,7 +87,7 @@ fn void part2()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			Select s = selectFromString(line)!!;
 			switch (s.r)
 			{

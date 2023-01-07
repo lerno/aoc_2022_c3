@@ -6,7 +6,7 @@ define DirList = List<Directory*>;
 
 struct Directory
 {
-	char[] name;
+	String name;
 	DirList other_dirs;
 	Directory* parent_dir;
 	long own_files_size;
@@ -19,11 +19,11 @@ fn long Directory.total_size(Directory* this)
 	return total;
 }
 
-fn Directory *handle_command(char[] command, Directory* top, Directory* current_dir)
+fn Directory *handle_command(String command, Directory* top, Directory* current_dir)
 {
 	if (command[2..] == "ls") return current_dir;
 	assert(command[2..3] == "cd");
-	char[] dir_name = command[5..];
+	String dir_name = command[5..];
 	switch DIR: (dir_name)
 	{
 		case "/":
@@ -51,7 +51,7 @@ fn void parse_dir(Directory *top)
 	Directory* current_dir;
 	while TOP: (!f.eof())
 	{
-		char[] line = f.tgetline();
+		String line = f.tgetline();
 		if (!line.len) break;
 		if (line[0] == '$')
 		{
@@ -65,7 +65,7 @@ fn void parse_dir(Directory *top)
 			current_dir.other_dirs.append(new_dir);
 			continue;
 		}
-		char[][] split = str::tsplit(line, " ");
+		String[] split = str::tsplit(line, " ");
 		assert(split.len == 2);
 		current_dir.own_files_size += str::to_long(split[0])!!;
 	}

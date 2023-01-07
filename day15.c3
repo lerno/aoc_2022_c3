@@ -6,9 +6,9 @@ import std::priorityqueue;
 
 define CoordPairList = List<int[<2>][2]>;
 
-fn int[<2>]! parse_coord(char[] s)
+fn int[<2>]! parse_coord(String s)
 {
-	char[][] parts = str::tsplit(s, ", y=");
+	String[] parts = str::tsplit(s, ", y=");
 	return { str::to_int(parts[0]), str::to_int(parts[1]) };
 }
 fn CoordPairList load_sensors()
@@ -22,9 +22,9 @@ fn CoordPairList load_sensors()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			line = line["Sensor at x=".len..];
-			char[][] parts = str::tsplit(line, ": closest beacon is at x=");
+			String[] parts = str::tsplit(line, ": closest beacon is at x=");
 			int[<2>] sensor_at = parse_coord(parts[0])!!;
 			int[<2>] beacon_at = parse_coord(parts[1])!!;
 			list.append( { sensor_at, beacon_at });

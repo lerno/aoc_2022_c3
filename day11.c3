@@ -34,20 +34,20 @@ fn Monkey[] load_monkeys(Monkey[] monkeys)
 		@pool()
 		{
 			// Very lazy parsing, assuming a lot about the format.
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			if (line.len == 0) continue;
-            char[][] commands = str::tsplit(line, " ");
+            String[] commands = str::tsplit(line, " ");
             int monkey_num = str::to_int(commands[1][..^2])!!;
             if (monkey_num > max_monkey) max_monkey = monkey_num;
             Monkey* active_monkey = &monkeys[monkey_num];
 			line = f.tgetline();
-			char[][] items = str::tsplit(str::tsplit(line, ": ")[1], ", ");
-            foreach (char[] item : items)
+			String[] items = str::tsplit(str::tsplit(line, ": ")[1], ", ");
+            foreach (String item : items)
             {
 				active_monkey.items[active_monkey.item_count++] = str::to_int(item)!!;
             }
 			line = f.tgetline();
-			char[][] op = str::tsplit(str::tsplit(line, "= old ")[1], " ");
+			String[] op = str::tsplit(str::tsplit(line, "= old ")[1], " ");
 			active_monkey.op_is_mult = op[0][0] == '*';
 			active_monkey.other_op = op[1] == "old" ? -1 : str::to_int(op[1])!!;
 			line = f.tgetline();

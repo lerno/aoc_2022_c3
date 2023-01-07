@@ -15,7 +15,7 @@ fn void load_crypto(LongList* list, LongList* pos, long key)
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			list.append(key * str::to_long(line)!!);
 			pos.append((int)pos.len());
 		};

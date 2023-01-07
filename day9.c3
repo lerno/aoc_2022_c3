@@ -69,7 +69,7 @@ macro void part(int $part)
 	defer catch(f.close());
 	while (!f.eof())
 	{
-		char[] line = f.tgetline();
+		String line = f.tgetline();
 		assert(line.len);
 		process_line(&state, line[0], str::to_int(line[2..])!!);
 	}

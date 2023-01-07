@@ -3,7 +3,7 @@ import std::io;
 import std::math;
 import std::array::list;
 
-define CharsArray = List<char[]>;
+define CharsArray = List<String>;
 
 const int PADDING = 100;
 
@@ -24,7 +24,7 @@ fn void load_map()
 	defer catch(f.close());
 	@pool()
 	{
-		char[] line = f.tgetline();
+		String line = f.tgetline();
 		width = line.len - 2;
 	};
 	height = 0;
@@ -32,7 +32,7 @@ fn void load_map()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			if (line[1] == '#') break;
 			line = line[1..^2];
 			foreach (int i, c : line)

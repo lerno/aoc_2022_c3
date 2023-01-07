@@ -32,7 +32,7 @@ macro bool StateCache.equals(StateCache* cache, StateCache other)
 	return true;
 }
 
-fn String load_jets()
+fn VarString load_jets()
 {
 	File f;
 	f.open("jets.txt", "rb")!!;
@@ -185,7 +185,7 @@ macro long adjust_lowest_bounds()
 	return bound;
 }
 
-macro @drop_rock(char[] winds, int &shape_index, isz &wind_index)
+macro @drop_rock(String winds, int &shape_index, isz &wind_index)
 {
 	int start = find_height() + 3;
 	Shape* current_shape = &shapes[shape_index];
@@ -195,7 +195,7 @@ macro @drop_rock(char[] winds, int &shape_index, isz &wind_index)
 	{
 		char jet = winds[wind_index];
 		wind_index = (wind_index + 1) % winds.len;
-		int[<2>] new_loc = location + int[<2>] { jet == '<' ? -1 : 1, 0 };
+		int[<2>] new_loc = location + { jet == '<' ? -1 : 1, 0 };
 		if (check_collision(current_shape, new_loc))
 		{
 			new_loc = location;
@@ -211,7 +211,7 @@ macro @drop_rock(char[] winds, int &shape_index, isz &wind_index)
 	}
 }
 
-fn void solve(char[] winds, long rocks)
+fn void solve(String winds, long rocks)
 {
 	game = {};
 	int shape_index = 0;
@@ -272,7 +272,7 @@ fn void solve(char[] winds, long rocks)
 
 fn void main()
 {
-	String s = load_jets();
+	VarString s = load_jets();
 	defer s.destroy();
 	solve(s.str(), 2022);
 	solve(s.str(), 1000000000000i64);

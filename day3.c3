@@ -24,11 +24,11 @@ fn void part1()
 			CharSet set;
 			set.tinit();
 			set.clear();
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			assert(line.len % 2 == 0 && line.len > 0);
 
-			char[] comp1 = line[:line.len / 2];
-			char[] comp2 = line[line.len / 2..];
+			String comp1 = line[:line.len / 2];
+			String comp2 = line[line.len / 2..];
 
 			foreach (c : comp1) set.set(c, c);
 
@@ -60,9 +60,9 @@ fn void part2()
 			CharSet set2;
 			set.tinit();
 			set2.tinit();
-			char[] line1 = f.tgetline();
-			char[] line2 = f.tgetline();
-			char[] line3 = f.tgetline();
+			String line1 = f.tgetline();
+			String line2 = f.tgetline();
+			String line3 = f.tgetline();
 
 			assert(line1.len && line2.len && line3.len);
 

@@ -28,7 +28,7 @@ fn void main()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			if (!line.len)
 			{
 				update_max(current_entry);

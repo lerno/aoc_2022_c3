@@ -55,7 +55,7 @@ fn void PacketElement.print(PacketElement* element)
 	}
 }
 
-fn int parse_list(void* list1, char[] list_inner)
+fn int parse_list(void* list1, String list_inner)
 {
 	Packet* packet = list1;
 	int index = 0;
@@ -100,7 +100,7 @@ fn int parse_list(void* list1, char[] list_inner)
 	unreachable();
 }
 
-fn Packet* packet_from_line(char[] line)
+fn Packet* packet_from_line(String line)
 {
 	assert(line[0] == '[' && line[^1] == ']');
 	Packet* packet = mem::alloc(Packet);

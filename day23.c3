@@ -3,7 +3,7 @@ import std::io;
 import std::math;
 import std::array::list;
 
-define CharsArray = List<char[]>;
+define CharsArray = List<String>;
 
 // Pick a padding that doesn't hit the asserts.
 const int PADDING = 100;
@@ -11,7 +11,7 @@ const int PADDING = 100;
 fn void print_map(CharsArray* list)
 {
 	io::println("-----");
-	foreach (char[] line : list)
+	foreach (String line : list)
 	{
 		io::println(line);
 	}
@@ -30,13 +30,13 @@ fn void load_map(CharsArray* list)
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			width = line.len;
 			line = str::tconcat(&spacing, line);
 			list.append(str::copy(str::tconcat(line, &spacing)));
 		};
 	}
-	char[] top_line = array::alloc(char, width + PADDING * 2);
+	String top_line = array::alloc(char, width + PADDING * 2);
 	top_line[..] = '.';
 	for (int i = 0; i < PADDING; i++)
 	{
@@ -57,7 +57,7 @@ fn bool round(CharsArray* list, int round)
 {
 	isz max_x = list.get(0).len - 1;
 	isz max_y = list.len() - 1;
-	foreach (i, char[] line : list)
+	foreach (i, String line : list)
 	{
 		foreach OUTER: (j, &cref : line)
 		{
@@ -68,8 +68,8 @@ fn bool round(CharsArray* list, int round)
 			char* s;
 			char* w;
 			char* e;
-			char[] north = list.get(i - 1);
-			char[] south = list.get(i + 1);
+			String north = list.get(i - 1);
+			String south = list.get(i + 1);
 			bool nw = is_empty(north[j - 1] );
 			bool ne = is_empty(north[j + 1]);
 			if (ne && nw) n = &list.get(i - 1)[j];
@@ -117,7 +117,7 @@ fn bool round(CharsArray* list, int round)
 		}
 	}
 	bool elves_moved = false;
-	foreach (i, char[] line : list)
+	foreach (i, String line : list)
     {
     	foreach (j, &cref : line)
     	{
@@ -143,7 +143,7 @@ fn bool round(CharsArray* list, int round)
     	    }
     	}
     }
-	foreach (i, char[] line : list)
+	foreach (i, String line : list)
     {
     	foreach (j, &cref : line)
     	{
@@ -167,7 +167,7 @@ fn void count_empty_tiles(CharsArray list)
 	isz first_y = 1000;
 	isz last_y = 0;
 	isz elves = 0;
-	foreach (i, char[] line : list)
+	foreach (i, String line : list)
     {
     	foreach (j, c : line)
     	{

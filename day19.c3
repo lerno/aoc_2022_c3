@@ -40,14 +40,14 @@ fn void load_blueprints()
 		@pool()
 		{
 			Blueprint print;
-			char[] line = f.tgetline();
-			char[][] split = str::tsplit(line, "Each ore robot costs ");
+			String line = f.tgetline();
+			String[] split = str::tsplit(line, "Each ore robot costs ");
 			split = str::tsplit(split[1], " ore. Each clay robot costs ");
 			print.ore_cost = { [ORE] = str::to_int(split[0])!! };
 			split = str::tsplit(split[1], " ore. Each obsidian robot costs ");
 			print.clay_cost = { [ORE] = str::to_int(split[0])!! };
 			split = str::tsplit(split[1], " clay. Each geode robot costs ");
-			char[][] split2 = str::tsplit(split[0], " ore and ");
+			String[] split2 = str::tsplit(split[0], " ore and ");
 			print.obsidian_cost = {
 				[ORE] = str::to_int(split2[0])!!,
 				[CLAY] = str::to_int(split2[1])!!

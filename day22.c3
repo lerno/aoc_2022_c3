@@ -15,7 +15,7 @@ enum MapType : char
 }
 
 int[200][200] map;
-char[] commands;
+String commands;
 int[<2>] start = { -1, -1 };
 int side;
 int width;
@@ -33,7 +33,7 @@ fn void load_map()
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
+			String line = f.tgetline();
 			if (line.len > width) width = line.len;
 			if (!line.len) break;
 			foreach (int x, c : line)

@@ -4,14 +4,14 @@ import std::math;
 import std::map;
 import std::array::list;
 
-define ValveMap = HashMap<char[], int>;
+define ValveMap = HashMap<String, int>;
 define IntPairList = List<int[<2>]>;
 ValveMap v;
 
 struct Valve
 {
 	int id;
-	char[] name;
+	String name;
 	int rate;
 	int[10] tunnels;
 	int tunnel_count;
@@ -42,10 +42,10 @@ fn Valve[] load_valves(Valve[100]* available_slots)
 	{
 		@pool()
 		{
-			char[] line = f.tgetline();
-			char[][] parts = str::tsplit(line, " ");
-			char[] name = str::copy(parts[1]);
-			char[] rate_part = parts[4];
+			String line = f.tgetline();
+			String[] parts = str::tsplit(line, " ");
+			String name = str::copy(parts[1]);
+			String rate_part = parts[4];
 			int val = v.@get_or_set(name, (int)v.count);
 			Valve *valve_entry = &(*available_slots)[val];
 			assert(valve_entry.id == 0);
@@ -55,7 +55,7 @@ fn Valve[] load_valves(Valve[100]* available_slots)
 			*valve_entry = { .rate = rate, .id = val, .name = name };
 			for (int i = 9; i < parts.len; i++)
 			{
-				char[] valve = parts[i];
+				String valve = parts[i];
 				if (i < parts.len - 1)
 				{
 					valve = valve[..^2];

@@ -3,7 +3,7 @@ import std::io;
 
 int[256] values = { ['2'] = 2, ['1'] = 1, ['0'] = 0, ['-'] = -1, ['='] = -2 };
 
-fn char[] snafu_from_long(char[] buffer, long l)
+fn String snafu_from_long(String buffer, long l)
 {
 	char[100] temp;
 	isz idx = 0;
@@ -40,7 +40,7 @@ fn char[] snafu_from_long(char[] buffer, long l)
 	return buffer.ptr[:idx];
 }
 
-fn long snafu_to_long(char[] num)
+fn long snafu_to_long(String num)
 {
 	long value = 0;
     foreach (long i, c : num)
@@ -61,12 +61,12 @@ fn void part1()
 	{
 		@pool()
         {
-        	char[] line = f.tgetline();
+        	String line = f.tgetline();
         	total += snafu_to_long(line);
         };
 	}
 	char[100] buffer;
-	char[] res = snafu_from_long(&buffer, total);
+	String res = snafu_from_long(&buffer, total);
 	io::printfln("%s", res);
 }
 
