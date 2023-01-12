@@ -141,7 +141,7 @@ fn void solve()
 		int cost = map_cost[i][height - 1][width - 1];
 		if (cost > 0 && cost < min) min = cost;
 	}
-	io::printfln("Cost: %d", min + 1);
+	io::printfn("Cost: %d", min + 1);
 	mem::clear(&map_cost, int.sizeof * MAX_PHASE * MAX_HEIGHT * MAX_WIDTH);
 	round = min + 1;
 	for (int i = 0; i < common; i++)
@@ -166,7 +166,7 @@ fn void solve()
 		int cost = map_cost[i][height - 1][width - 1];
 		if (cost > 0 && cost < min) min = cost;
 	}
-    io::printfln("Cost: %d", min + 1);
+    io::printfn("Cost: %d", min + 1);
 }
 
 

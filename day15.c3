@@ -74,7 +74,7 @@ fn void part1(CoordPairList list)
 	}
 	int sum = 0;
 	foreach (b : array) if (b) sum++;
-	io::printfln("Found %d safe locations", sum);
+	io::printfn("Found %d safe locations", sum);
 }
 
 fn bool is_covered(int[<2>] loc, CoordPairList list)
@@ -111,9 +111,9 @@ fn void part2(CoordPairList list)
 			if (loc.comp_ge({ RANGE, RANGE }).or()) continue;
 			if (!is_covered(loc, list))
 			{
-				io::printfln("Found beacon at %s", loc);
+				io::printfn("Found beacon at %s", loc);
 				long frequency = 4000000i64 * loc[0] + loc[1];
-				io::printfln("Beacon had tuning frequency %d", frequency);
+				io::printfn("Beacon had tuning frequency %d", frequency);
 				return;
 			}
 		}

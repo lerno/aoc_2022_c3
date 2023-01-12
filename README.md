@@ -1,2 +1,3 @@
-# aoc_2022_c3
-Advent of Code in C3
+# Advent of Code 2022 in C3
+
+Quick and dirty solutions to 2022 in C3. 

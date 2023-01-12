@@ -18,7 +18,7 @@ fn void print_monkeys(Monkey[] monkeys)
 {
 	foreach (i, &m : monkeys)
 	{
-		io::printfln("%d: %s, inspect %d, new = old %c %d, / by %d -> %d | %d", i, m.items[:m.item_count], m.inspections, m.op_is_mult ? '*' : '+', m.other_op,
+		io::printfn("%d: %s, inspect %d, new = old %c %d, / by %d -> %d | %d", i, m.items[:m.item_count], m.inspections, m.op_is_mult ? '*' : '+', m.other_op,
 			m.test, m.on_true, m.on_false);
 	}
 }
@@ -102,7 +102,7 @@ fn void part1()
 			monkey.item_count = 0;
 		}
 	}
-	io::printfln("Monkey business was: %d", monkey_business(monkeys));
+	io::printfn("Monkey business was: %d", monkey_business(monkeys));
 }
 
 fn void part2()
@@ -131,7 +131,7 @@ fn void part2()
 			monkey.item_count = 0;
 		}
 	}
-	io::printfln("Monkey business was: %d", monkey_business(monkeys));
+	io::printfn("Monkey business was: %d", monkey_business(monkeys));
 }
 
 fn void main()

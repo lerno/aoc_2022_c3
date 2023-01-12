@@ -95,7 +95,7 @@ fn void part1()
             if (cycle > 222) break;
 		};
 	}
-	io::printfln("Signal strength: %d", signal_strength);
+	io::printfn("Signal strength: %d", signal_strength);
 }
 
 fn void main()

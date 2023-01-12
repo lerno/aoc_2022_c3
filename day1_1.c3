@@ -29,5 +29,5 @@ fn void main()
 			}
 		};
 	}
-	io::printfln("Elf #%d carries the most calories (%d)", max_elf, max_entry);
+	io::printfn("Elf #%d carries the most calories (%d)", max_elf, max_entry);
 }

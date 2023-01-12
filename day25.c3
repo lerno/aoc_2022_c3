@@ -67,7 +67,7 @@ fn void part1()
 	}
 	char[100] buffer;
 	String res = snafu_from_long(&buffer, total);
-	io::printfln("%s", res);
+	io::printfn("%s", res);
 }
 
 fn void main()

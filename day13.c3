@@ -189,7 +189,7 @@ fn void part1(PacketPairs* packets)
 			sum += i + 1;
 		}
 	}
-	io::printfln("Sum of ordered pairs: %d", sum);
+	io::printfn("Sum of ordered pairs: %d", sum);
 }
 
 
@@ -243,7 +243,7 @@ fn void part2(PacketPairs* packets)
 				key *= i + 1;
 		}
 	}
-	io::printfln("Decoder key: %d", key);
+	io::printfn("Decoder key: %d", key);
 }
 fn void main()
 {

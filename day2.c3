@@ -74,7 +74,7 @@ fn void part1()
 			points += 6;
 		};
 	}
-	io::printfln("The total score is: %d", points);
+	io::printfn("The total score is: %d", points);
 }
 
 fn void part2()
@@ -100,7 +100,7 @@ fn void part2()
 			}
 		};
 	}
-	io::printfln("The real score is: %d", points);
+	io::printfn("The real score is: %d", points);
 }
 
 fn void main()

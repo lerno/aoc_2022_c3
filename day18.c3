@@ -65,7 +65,7 @@ fn void count_faces()
 			}
 		}
 	}
-	io::printfln("Faces: %d", faces);
+	io::printfn("Faces: %d", faces);
 }
 
 fn void fill(int[<3>] loc)

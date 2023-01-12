@@ -110,7 +110,7 @@ fn long Monkey.getValue(Monkey* m)
 fn void part1(Monkey root)
 {
 	long value = root.getValue();
-	io::printfln("Root yells: %d", value);
+	io::printfn("Root yells: %d", value);
 }
 
 fn bool Monkey.has_human(Monkey* m)
@@ -132,7 +132,7 @@ fn bool Monkey.discover_human(Monkey* m, long value)
 {
 	if (m.is_human)
 	{
-		io::printfln("Human yells: %d", value);
+		io::printfn("Human yells: %d", value);
 		return true;
 	}
 	if (!m.had_human) return false;

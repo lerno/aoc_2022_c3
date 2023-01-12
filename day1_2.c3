@@ -41,5 +41,5 @@ fn void main()
 	if (current_entry) update_max(current_entry);
 	int sum = 0;
 	foreach (val : entry_max) sum += val;
-	io::printfln("Top three elves carries: %d", sum);
+	io::printfn("Top three elves carries: %d", sum);
 }

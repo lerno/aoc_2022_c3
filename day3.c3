@@ -43,7 +43,7 @@ fn void part1()
 			unreachable();
 		};
 	}
-	io::printfln("The sum of priorities is: %d", total);
+	io::printfn("The sum of priorities is: %d", total);
 }
 
 fn void part2()
@@ -84,7 +84,7 @@ fn void part2()
 			unreachable();
 		};
 	}
-	io::printfln("The sum of badges is: %d", total);
+	io::printfn("The sum of badges is: %d", total);
 }
 
 fn void main()

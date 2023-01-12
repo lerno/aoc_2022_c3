@@ -84,7 +84,7 @@ fn long count_dir_1(Directory *dir)
 }
 fn void part1(Directory* top)
 {
-	io::printfln("Total size of small dirs: %d", count_dir_1(top));
+	io::printfn("Total size of small dirs: %d", count_dir_1(top));
 }
 
 fn bool part2_find(Directory* dir, long *smallest_found, long needed)
@@ -110,7 +110,7 @@ fn void part2(Directory* top)
 	assert(need_to_free > 0);
 	long smallest_found = used + 1;
 	part2_find(top, &smallest_found, need_to_free);
-	io::printfln("Smallest dir size to remove: %s", smallest_found);
+	io::printfn("Smallest dir size to remove: %s", smallest_found);
 }
 fn void main()
 {

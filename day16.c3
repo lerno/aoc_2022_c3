@@ -155,7 +155,7 @@ fn void part1(Valve[] valves, int start)
 	int[100] locations;
 	locations[start] = 1;
 	int flow = visit_valve(start, valves, &locations, 30, 0);
-	io::printfln("Best flow: %d", flow);
+	io::printfn("Best flow: %d", flow);
 }
 
 fn void part2(Valve[] valves, int start)
@@ -163,7 +163,7 @@ fn void part2(Valve[] valves, int start)
 	int[100] locations;
 	locations[start] = 1;
 	int flow = visit_valve2(start, valves, &locations, 26, 0, 26, start);
-	io::printfln("Best flow: %d", flow);
+	io::printfn("Best flow: %d", flow);
 }
 
 fn void main()

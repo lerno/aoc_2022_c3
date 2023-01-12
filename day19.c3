@@ -154,7 +154,7 @@ fn void part1()
 		int geodes = do_next_day(24, state, &b);
 		quality_sum += (i + 1) * geodes;
 	}
-	io::printfln("Quality sum: %d", quality_sum);
+	io::printfn("Quality sum: %d", quality_sum);
 }
 
 fn void part2()
@@ -168,7 +168,7 @@ fn void part2()
 		long geodes = do_next_day(32, state, &b);
 		quality *= geodes;
 	}
-	io::printfln("Quality product: %d", quality);
+	io::printfn("Quality product: %d", quality);
 }
 
 fn void main()

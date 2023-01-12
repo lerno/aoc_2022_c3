@@ -267,7 +267,7 @@ fn void solve(String winds, long rocks)
 		@drop_rock(winds, shape_index, wind_index);
 		offset += adjust_lowest_bounds();
 	}
-	io::printfln("Height was: %d", find_height() + offset);
+	io::printfn("Height was: %d", find_height() + offset);
 }
 
 fn void main()

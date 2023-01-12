@@ -72,7 +72,7 @@ fn void part1()
 			points += c[1].points + c[1].result_against(c[0]).points;
 		};
 	}
-	io::printfln("The total score is: %d", points);
+	io::printfn("The total score is: %d", points);
 }
 
 fn void part2()
@@ -89,7 +89,7 @@ fn void part2()
 			points += s.r.points + s.r.choice_from_other(s.c).points;
 		};
 	}
-	io::printfln("The real score is: %d", points);
+	io::printfn("The real score is: %d", points);
 }
 
 fn void main()

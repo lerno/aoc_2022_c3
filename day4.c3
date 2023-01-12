@@ -38,7 +38,7 @@ fn void part1()
 			if (range_contains(range1, range2) || range_contains(range2, range1)) total++;
 		};
 	}
-	io::printfln("The number of overlaps: %d", total);
+	io::printfn("The number of overlaps: %d", total);
 }
 
 fn void part2()
@@ -61,7 +61,7 @@ fn void part2()
 			if (range_contains_any(range1, range2)) total++;
 		};
 	}
-	io::printfln("The number of partial overlaps: %d", total);
+	io::printfn("The number of partial overlaps: %d", total);
 }
 
 fn void main()

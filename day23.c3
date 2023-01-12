@@ -182,7 +182,7 @@ fn void count_empty_tiles(CharsArray list)
     	}
     }
     isz area = (last_x - first_x + 1) * (last_y - first_y + 1);
-    io::printfln("Empty squares: %d", area - elves);
+    io::printfn("Empty squares: %d", area - elves);
 }
 
 fn void part1()
@@ -206,7 +206,7 @@ fn void part2()
 	{
 		if (!round(&list, i))
 		{
-			io::printfln("Elves stopped moving round %d", i + 1);
+			io::printfn("Elves stopped moving round %d", i + 1);
 			break;
 		}
 	}

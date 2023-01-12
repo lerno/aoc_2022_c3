@@ -272,7 +272,7 @@ fn void part1()
 		facing = (4 + new_facing + facing) % 4;
 	}
 	long value = (pos[0] + 1i64) * 4i64 + (pos[1] + 1i64) * 1000i64 + facing;
-	io::printfln("Password: %d", value);
+	io::printfn("Password: %d", value);
 }
 
 fn void part2()
@@ -339,7 +339,7 @@ fn void part2()
 		facing = (4 + new_facing + facing) % 4;
 	}
 	long value = (pos[0] + 1i64) * 4i64 + (pos[1] + 1i64) * 1000i64 + facing;
-	io::printfln("Password: %d", value);
+	io::printfn("Password: %d", value);
 }
 
 fn void main()

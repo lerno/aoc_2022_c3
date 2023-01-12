@@ -98,7 +98,7 @@ fn void part1()
 	{
 		if (simulate_sand_path(env, SAND_START) == Result.LOST_IN_ABYSS)
 		{
-			io::printfln("%d grains of sand came to rest.", grains_of_sand);
+			io::printfn("%d grains of sand came to rest.", grains_of_sand);
 			return;
 		}
 		grains_of_sand++;
@@ -115,7 +115,7 @@ fn void part2()
 		grains_of_sand++;
 		if (simulate_sand_path(env, SAND_START) == Result.SAND_CHOKED)
 		{
-			io::printfln("%d grains of sand came to rest.", grains_of_sand);
+			io::printfn("%d grains of sand came to rest.", grains_of_sand);
 			return;
 		}
 	}

@@ -106,7 +106,7 @@ fn void solve(int key, int mixes)
 	long x1000 = value_at_pos(list, pos, (zero_loc + 1000) % len);
 	long x2000 = value_at_pos(list, pos, (zero_loc + 2000) % len);
 	long x3000 = value_at_pos(list, pos, (zero_loc + 3000) % len);
-	io::printfln("Total: %d + %d + %d = %d", x1000, x2000, x3000, x1000 + x2000 + x3000);
+	io::printfn("Total: %d + %d + %d = %d", x1000, x2000, x3000, x1000 + x2000 + x3000);
 }
 
 fn void main()

@@ -78,7 +78,7 @@ macro void part(int $part)
 	{
 		foreach (val : *row) if (val) sum++;
 	}
-	io::printfln("Grids visited by the tail: %d", sum);
+	io::printfn("Grids visited by the tail: %d", sum);
 }
 
 fn void main()

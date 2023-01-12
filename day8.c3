@@ -133,12 +133,12 @@ fn int Forest.best_scenic_score(Forest* forest)
 
 fn void part1(Forest* forest)
 {
-	io::printfln("Visible from outside: %d", forest.visible_from_outside());
+	io::printfn("Visible from outside: %d", forest.visible_from_outside());
 }
 
 fn void part2(Forest* forest)
 {
-	io::printfln("Best scenic score: %d", forest.best_scenic_score());
+	io::printfn("Best scenic score: %d", forest.best_scenic_score());
 }
 
 fn void main()

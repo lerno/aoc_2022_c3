@@ -29,7 +29,7 @@ fn void find_packet_start(int check_len)
 				{
 					if (in_len(&line[i + j], check_len - j)) continue OUTER;
 				}
-				io::printfln("Packet start (%d): %d", check_len, i + check_len);
+				io::printfn("Packet start (%d): %d", check_len, i + check_len);
 				continue READ;
 			}
 			unreachable("Invalid data");

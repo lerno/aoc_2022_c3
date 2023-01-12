@@ -133,7 +133,7 @@ fn void part1(Map* map)
 	{
 		WalkedMap* w = map.create_temp_empty_walked_map();
 		map.fill(w, map.start, 0, false);
-		io::printfln("Fewest steps: %d", w.steps_at(map.end));
+		io::printfn("Fewest steps: %d", w.steps_at(map.end));
 	};
 }
 
@@ -154,7 +154,7 @@ fn void part2(Map* map)
 				if (steps && steps < min) min = steps;
 			}
 		}
-		io::printfln("Fewest steps: %d", min);
+		io::printfn("Fewest steps: %d", min);
 	};
 }
 
