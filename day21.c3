@@ -39,7 +39,7 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 	defer catch(f.close());
 	NameMap map;
 	map.init();
-	defer map.destroy();
+	defer map.free();
 	MonkeyId index = 0;
 	while (!f.eof())
 	{
