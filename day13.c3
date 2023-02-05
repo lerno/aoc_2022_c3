@@ -1,7 +1,7 @@
 module day13;
 import std::io;
 import std::math;
-import std::array::list;
+import std::collections::list;
 
 struct PacketPair
 {

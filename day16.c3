@@ -1,8 +1,8 @@
 module day16;
 import std::io;
 import std::math;
-import std::map;
-import std::array::list;
+import std::collections::map;
+import std::collections::list;
 
 define ValveMap = HashMap<String, int>;
 define IntPairList = List<int[<2>]>;

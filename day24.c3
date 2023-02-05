@@ -1,7 +1,7 @@
 module day24;
 import std::io;
 import std::math;
-import std::array::list;
+import std::collections::list;
 
 define CharsArray = List<String>;
 

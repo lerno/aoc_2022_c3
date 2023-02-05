@@ -1,8 +1,8 @@
 module day18;
 import std::io;
 import std::math;
-import std::map;
-import std::array::list;
+import std::collections::map;
+import std::collections::list;
 
 const MAX = 22;
 int[MAX][MAX][MAX] locations;

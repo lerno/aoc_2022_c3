@@ -1,6 +1,6 @@
 module day5;
 import std::io;
-import std::array::list;
+import std::collections::list;
 
 define CharList = list::List<char>;
 

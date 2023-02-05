@@ -1,8 +1,8 @@
 module day17;
 import std::io;
 import std::math;
-import std::map;
-import std::array::list;
+import std::collections::map;
+import std::collections::list;
 
 define StateCacheMap = HashMap<StateCache, int>;
 

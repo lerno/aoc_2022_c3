@@ -1,8 +1,8 @@
 module day21;
 import std::io;
 import std::math;
-import std::map;
-import std::array::list;
+import std::collections::map;
+import std::collections::list;
 
 define MonkeyList = List<Monkey>;
 define NameMap = HashMap<String, MonkeyId>;

@@ -1,8 +1,8 @@
 module day15;
 import std::io;
 import std::math;
-import std::array::list;
-import std::priorityqueue;
+import std::collections::list;
+import std::collections::priorityqueue;
 
 define CoordPairList = List<int[<2>][2]>;
 

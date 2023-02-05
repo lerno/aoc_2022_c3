@@ -1,5 +1,5 @@
 module day7;
-import std::array::list;
+import std::collections::list;
 import std::io;
 
 define DirList = List<Directory*>;

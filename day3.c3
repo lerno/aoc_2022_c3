@@ -1,6 +1,6 @@
 module day3;
 import std::io;
-import std::map;
+import std::collections::map;
 
 define CharSet = HashMap<char, char>;
 

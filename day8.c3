@@ -1,5 +1,5 @@
 module day8;
-import std::array::list;
+import std::collections::list;
 import std::io;
 
 define Forest = distinct List<String>;
