@@ -214,7 +214,7 @@ fn void part1()
 	while (index < len)
 	{
 		int steps = -1;
-		int new_facing = void;
+		int new_facing @noinit;
 		for (int i = index; i < len; i++)
 		{
 			if (commands[i] >= 'A')
@@ -284,7 +284,7 @@ fn void part2()
 	while (index < len)
 	{
 		int steps = -1;
-		int new_facing = void;
+		int new_facing @noinit;
 		for (int i = index; i < len; i++)
 		{
 			if (commands[i] >= 'A')
