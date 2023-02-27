@@ -8,7 +8,7 @@ fn Forest* parse_forest()
 	File f;
 	f.open("forest.txt", "rb")!!;
 	defer catch(f.close());
-	Forest* forest = mem::alloc(Forest);
+	Forest* forest = malloc(Forest);
 	forest.init(512);
 	while (!f.eof())
 	{

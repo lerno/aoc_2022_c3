@@ -51,7 +51,7 @@ fn void part1(CoordPairList list)
 		if (i == 0 || max > max_x) max_x = max;
 	}
 	int width = max_x - min_x + 1;
-	bool[] array = array::tmake(bool, width);
+	bool[] array = tcalloc(bool, width);
 	foreach (pair : list)
 	{
 		int[<2>] sensor_at = pair[0];

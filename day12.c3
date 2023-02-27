@@ -27,7 +27,7 @@ fn WalkedMap* Map.create_temp_empty_walked_map(Map* map)
 {
 	usz height = map.map.len();
 	usz width = map.map.get(0).len;
-	WalkedMap *w = mem::talloc(WalkedMap);
+	WalkedMap *w = talloc(WalkedMap);
 	w.walked = mem::tcalloc(int.sizeof * height * width);
 	w.size = { (int)width, (int)height };
 	return w;
@@ -68,7 +68,7 @@ fn Map* load_heightmap()
 	File f;
 	f.open("heightmap.txt", "rb")!!;
 	defer catch(f.close());
-	Map* map = mem::alloc(Map);
+	Map* map = malloc(Map);
 	map.map.init();
 	while (!f.eof())
 	{

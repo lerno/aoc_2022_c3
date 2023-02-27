@@ -73,7 +73,7 @@ fn int parse_list(void* list1, String list_inner)
 				if (c < '0' || c > '9') break;
 				index++;
 			}
-			PacketElement* element = mem::alloc(PacketElement);
+			PacketElement* element = malloc(PacketElement);
 			*element = { .is_subpacket = false, .value = str::to_int(list_inner[start..(index - 1)])!! };
 			packet.append(element);
 			if (index == len) return len;
@@ -85,8 +85,8 @@ fn int parse_list(void* list1, String list_inner)
 		if (c == ']') return index + 1;
 		assert(c == '[');
 		index++;
-		PacketElement* element = mem::alloc(PacketElement);
-		Packet* inner_list = mem::alloc(Packet);
+		PacketElement* element = malloc(PacketElement);
+		Packet* inner_list = malloc(Packet);
 		inner_list.init();
 		index += parse_list(inner_list, list_inner[index..]);
 		*element = { .is_subpacket = true, .packet = inner_list };
@@ -103,7 +103,7 @@ fn int parse_list(void* list1, String list_inner)
 fn Packet* packet_from_line(String line)
 {
 	assert(line[0] == '[' && line[^1] == ']');
-	Packet* packet = mem::alloc(Packet);
+	Packet* packet = malloc(Packet);
 	packet.init();
 	parse_list(packet, line[1..]);
 	return packet;
@@ -113,7 +113,7 @@ fn PacketPairs* load_packets()
 	File f;
 	f.open("packets.txt", "rb")!!;
 	defer catch(f.close());
-	PacketPairs* packet = mem::alloc(PacketPairs);
+	PacketPairs* packet = malloc(PacketPairs);
 	packet.init();
 	while (!f.eof())
 	{
@@ -208,13 +208,13 @@ fn void insert_packet(PacketList* list, Packet* new_packet)
 
 fn Packet* create_div(int value)
 {
-	Packet* packet = mem::alloc(Packet);
+	Packet* packet = malloc(Packet);
 	packet.init();
-	PacketElement* element = mem::alloc(PacketElement);
-	Packet* inner_packet = mem::alloc(Packet);
+	PacketElement* element = malloc(PacketElement);
+	Packet* inner_packet = malloc(Packet);
 	*element = { .is_subpacket = true, .packet = inner_packet };
 	inner_packet.init();
-	PacketElement* element_inner = mem::alloc(PacketElement);
+	PacketElement* element_inner = malloc(PacketElement);
 	*element_inner = { .value = value };
 	inner_packet.append(element_inner);
 	packet.append(element);
