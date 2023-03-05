@@ -32,7 +32,7 @@ macro bool StateCache.equals(StateCache* cache, StateCache other)
 	return true;
 }
 
-fn VarString load_jets()
+fn DString load_jets()
 {
 	File f;
 	f.open("jets.txt", "rb")!!;
@@ -272,7 +272,7 @@ fn void solve(String winds, long rocks)
 
 fn void main()
 {
-	VarString s = load_jets();
+	DString s = load_jets();
 	defer s.destroy();
 	solve(s.str(), 2022);
 	solve(s.str(), 1000000000000i64);
