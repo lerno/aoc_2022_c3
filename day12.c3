@@ -28,7 +28,7 @@ fn WalkedMap* Map.create_temp_empty_walked_map(Map* map)
 	usz height = map.map.len();
 	usz width = map.map.get(0).len;
 	WalkedMap *w = talloc(WalkedMap);
-	w.walked = mem::tcalloc(int.sizeof * height * width);
+	w.walked = tcalloc(int.sizeof * height * width);
 	w.size = { (int)width, (int)height };
 	return w;
 }
