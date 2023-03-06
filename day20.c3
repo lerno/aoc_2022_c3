@@ -10,7 +10,7 @@ fn void load_crypto(LongList* list, LongList* pos, long key)
 {
 	File f;
 	f.open("crypto.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	while (!f.eof())
 	{
 		@pool()

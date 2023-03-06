@@ -47,7 +47,7 @@ fn void parse_dir(Directory *top)
 {
 	File f;
 	f.open("dir.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	Directory* current_dir;
 	while TOP: (!f.eof())
 	{

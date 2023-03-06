@@ -15,7 +15,7 @@ fn void part1()
 {
 	File f;
 	f.open("rucksack.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int total = 0;
 	while NEXT: (!f.eof())
 	{
@@ -50,7 +50,7 @@ fn void part2()
 {
 	File f;
 	f.open("rucksack.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int total = 0;
 	while NEXT: (!f.eof())
 	{

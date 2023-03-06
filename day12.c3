@@ -67,7 +67,7 @@ fn Map* load_heightmap()
 {
 	File f;
 	f.open("heightmap.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	Map* map = malloc(Map);
 	map.map.init();
 	while (!f.eof())

@@ -22,7 +22,7 @@ fn void main()
 {
 	File f;
 	f.open("calories.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int current_entry = 0;
 	while (!f.eof())
 	{

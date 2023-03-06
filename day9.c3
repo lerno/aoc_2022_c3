@@ -66,7 +66,7 @@ macro void part(int $part)
 	state.tail = &tail;
 	File f;
 	f.open("moves.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	while (!f.eof())
 	{
 		String line = f.tgetline();

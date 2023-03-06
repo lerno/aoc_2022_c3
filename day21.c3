@@ -36,7 +36,7 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 {
 	File f;
 	f.open("monkeys.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	NameMap map;
 	map.init();
 	defer map.free();

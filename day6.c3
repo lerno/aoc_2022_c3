@@ -15,7 +15,7 @@ fn void find_packet_start(int check_len)
 {
 	File f;
 	f.open("signal.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 
 	while READ: (!f.eof())
 	{

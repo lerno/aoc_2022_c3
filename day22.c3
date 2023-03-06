@@ -26,7 +26,7 @@ fn void load_map()
 {
 	File f;
 	f.open("map.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int y = 0;
 	width = 0;
 	while (!f.eof())

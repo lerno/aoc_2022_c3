@@ -21,7 +21,7 @@ fn void load_map()
 {
 	File f;
 	f.open("blizzard.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	@pool()
 	{
 		String line = f.tgetline();

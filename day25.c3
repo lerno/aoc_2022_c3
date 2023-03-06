@@ -55,7 +55,7 @@ fn void part1()
 {
 	File f;
 	f.open("snafu.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	long total = 0;
 	while (!f.eof())
 	{

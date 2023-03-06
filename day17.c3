@@ -36,7 +36,7 @@ fn DString load_jets()
 {
 	File f;
 	f.open("jets.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	return f.getline();
 }
 

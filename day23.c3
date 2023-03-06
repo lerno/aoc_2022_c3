@@ -22,7 +22,7 @@ fn void load_map(CharsArray* list)
 {
 	File f;
 	f.open("crater.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	isz width;
 	char[PADDING] spacing;
 	spacing[..] = '.';

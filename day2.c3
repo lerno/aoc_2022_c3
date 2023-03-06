@@ -51,7 +51,7 @@ fn void part1()
 {
 	File f;
 	f.open("solution.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int points = 0;
 	while (!f.eof())
 	{
@@ -81,7 +81,7 @@ fn void part2()
 {
 	File f;
 	f.open("solution.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int points = 0;
 	while (!f.eof())
 	{

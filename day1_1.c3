@@ -5,7 +5,7 @@ fn void main()
 {
 	File f;
 	f.open("calories.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	usz current_entry = 0;
 	usz max_entry = 0;
 	usz max_elf = 1;

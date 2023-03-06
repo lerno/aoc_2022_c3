@@ -36,7 +36,7 @@ fn void part2()
 {
 	File f;
 	f.open("code.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	bool[40][6] crt;
 	int cycle = 0;
 	int x = 1;
@@ -68,7 +68,7 @@ fn void part1()
 {
 	File f;
 	f.open("code.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int cycle = 0;
 	int x = 1;
 	int signal_strength = 0;

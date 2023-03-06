@@ -34,7 +34,7 @@ fn void load_blueprints()
 	File f;
 	f.open("blueprint.txt", "rb")!!;
 	blueprints.init();
-	defer catch(f.close());
+	defer (void)f.close();
 	while (!f.eof())
 	{
 		@pool()

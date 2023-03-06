@@ -36,7 +36,7 @@ macro void @process_moves(; @body(int move_amount, CharList* a, CharList *b))
 {
 	File f;
 	f.open("crates.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 
 	CharList[MAX_PILES] piles;
 	int piles_used = init_piles(&piles, &f);

@@ -112,7 +112,7 @@ fn PacketPairs* load_packets()
 {
 	File f;
 	f.open("packets.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	PacketPairs* packet = malloc(PacketPairs);
 	packet.init();
 	while (!f.eof())

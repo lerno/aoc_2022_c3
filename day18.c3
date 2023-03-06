@@ -11,7 +11,7 @@ fn void load_lava()
 {
 	File f;
 	f.open("lava.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	while (!f.eof())
 	{
 		@pool()

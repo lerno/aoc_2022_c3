@@ -36,7 +36,7 @@ fn Valve[] load_valves(Valve[100]* available_slots)
 {
 	File f;
 	f.open("valves.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int count = 0;
 	while (!f.eof())
 	{

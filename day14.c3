@@ -28,7 +28,7 @@ fn Environment* load_environment(EnvType type)
 {
 	File f;
 	f.open("cave.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	Environment* env = calloc(Environment.sizeof);
 	int max_y = 0;
 	while (!f.eof())

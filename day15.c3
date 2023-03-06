@@ -15,7 +15,7 @@ fn CoordPairList load_sensors()
 {
 	File f;
 	f.open("sensor.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	CoordPairList list;
 	list.init();
 	while (!f.eof())

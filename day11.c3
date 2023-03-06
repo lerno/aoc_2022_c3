@@ -27,7 +27,7 @@ fn Monkey[] load_monkeys(Monkey[] monkeys)
 {
 	File f;
 	f.open("monkey.txt", "rb")!!;
-	defer catch(f.close());
+	defer (void)f.close();
 	int max_monkey = 0;
 	while (!f.eof())
 	{
