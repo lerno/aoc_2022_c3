@@ -31,8 +31,7 @@ struct GameState
 
 fn void load_blueprints()
 {
-	File f;
-	f.open("blueprint.txt", "rb")!!;
+	File f = file::open("blueprint.txt", "rb")!!;
 	blueprints.init();
 	defer (void)f.close();
 	while (!f.eof())
@@ -41,18 +40,18 @@ fn void load_blueprints()
 		{
 			Blueprint print;
 			String line = f.tgetline();
-			String[] split = str::tsplit(line, "Each ore robot costs ");
-			split = str::tsplit(split[1], " ore. Each clay robot costs ");
+			String[] split = line.tsplit("Each ore robot costs ");
+			split = split[1].tsplit(" ore. Each clay robot costs ");
 			print.ore_cost = { [ORE] = str::to_int(split[0])!! };
-			split = str::tsplit(split[1], " ore. Each obsidian robot costs ");
+			split = split[1].tsplit(" ore. Each obsidian robot costs ");
 			print.clay_cost = { [ORE] = str::to_int(split[0])!! };
-			split = str::tsplit(split[1], " clay. Each geode robot costs ");
-			String[] split2 = str::tsplit(split[0], " ore and ");
+			split = split[1].tsplit(" clay. Each geode robot costs ");
+			String[] split2 = split[0].tsplit(" ore and ");
 			print.obsidian_cost = {
 				[ORE] = str::to_int(split2[0])!!,
 				[CLAY] = str::to_int(split2[1])!!
  			};
-			split2 = str::tsplit(split[1], " ore and ");
+			split2 = split[1].tsplit(" ore and ");
 			print.geode_cost = {
 				[ORE] = str::to_int(split2[0])!!,
 				[OBSIDIAN] = str::to_int(split2[1][..^11])!!

@@ -34,8 +34,7 @@ struct Monkey
 }
 fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_index)
 {
-	File f;
-	f.open("monkeys.txt", "rb")!!;
+	File f = file::open("monkeys.txt", "rb")!!;
 	defer (void)f.close();
 	NameMap map;
 	map.init();
@@ -46,8 +45,8 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 		@pool()
 		{
 			String line = f.tgetline();
-			String[] parts = str::tsplit(line, ": ");
-			String name = str::copy(parts[0]);
+			String[] parts = line.tsplit(": ");
+			String name = parts[0].copy();
 			if (name == "root")
 			{
 				*root_index = index;
@@ -66,9 +65,9 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 			}
 			else
 			{
-				parts = str::tsplit(parts[1], " ");
-				m.other_monkey_unresolved[0] = str::copy(parts[0]);
-				m.other_monkey_unresolved[1] = str::copy(parts[2]);
+				parts = parts[1].tsplit(" ");
+				m.other_monkey_unresolved[0] = parts[0].copy();
+				m.other_monkey_unresolved[1] = parts[2].copy();
 				switch (parts[1][0])
 				{
 					case '*': m.action = Action.MULT;

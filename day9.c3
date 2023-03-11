@@ -64,8 +64,7 @@ macro void part(int $part)
 	state.map[MAP_SIZE / 2][MAP_SIZE / 2] = true;
 	int[<2>][$part == 1 ? 1 : 9] tail;
 	state.tail = &tail;
-	File f;
-	f.open("moves.txt", "rb")!!;
+	File f = file::open("moves.txt", "rb")!!;
 	defer (void)f.close();
 	while (!f.eof())
 	{

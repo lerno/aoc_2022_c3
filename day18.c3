@@ -9,14 +9,13 @@ int[MAX][MAX][MAX] locations;
 
 fn void load_lava()
 {
-	File f;
-	f.open("lava.txt", "rb")!!;
+	File f = file::open("lava.txt", "rb")!!;
 	defer (void)f.close();
 	while (!f.eof())
 	{
 		@pool()
 		{
-			String[] parts = str::tsplit(f.tgetline(), ",");
+			String[] parts = f.tgetline().tsplit(",");
 			locations[str::to_int(parts[0])!!][str::to_int(parts[1])!!][str::to_int(parts[2])!!] = 7;
 		};
 	}

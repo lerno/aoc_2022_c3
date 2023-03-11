@@ -5,8 +5,7 @@ import std::io;
 define Forest = distinct List<String>;
 fn Forest* parse_forest()
 {
-	File f;
-	f.open("forest.txt", "rb")!!;
+	File f = file::open("forest.txt", "rb")!!;
 	defer (void)f.close();
 	Forest* forest = malloc(Forest);
 	forest.init(512);

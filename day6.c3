@@ -13,8 +13,7 @@ fn bool in_len(char* first, int len)
 
 fn void find_packet_start(int check_len)
 {
-	File f;
-	f.open("signal.txt", "rb")!!;
+	File f = file::open("signal.txt", "rb")!!;
 	defer (void)f.close();
 
 	while READ: (!f.eof())

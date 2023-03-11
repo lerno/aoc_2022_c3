@@ -37,7 +37,7 @@ fn String snafu_from_long(String buffer, long l)
 		buffer[len - i - 1] = temp[i];
 	}
 	buffer[idx] = 0;
-	return buffer.ptr[:idx];
+	return (String)buffer.ptr[:idx];
 }
 
 fn long snafu_to_long(String num)
@@ -53,8 +53,7 @@ fn long snafu_to_long(String num)
 
 fn void part1()
 {
-	File f;
-	f.open("snafu.txt", "rb")!!;
+	File f = file::open("snafu.txt", "rb")!!;
 	defer (void)f.close();
 	long total = 0;
 	while (!f.eof())
@@ -66,7 +65,7 @@ fn void part1()
         };
 	}
 	char[100] buffer;
-	String res = snafu_from_long(&buffer, total);
+	String res = snafu_from_long((String)&buffer, total);
 	io::printfn("%s", res);
 }
 

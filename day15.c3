@@ -8,13 +8,12 @@ define CoordPairList = List<int[<2>][2]>;
 
 fn int[<2>]! parse_coord(String s)
 {
-	String[] parts = str::tsplit(s, ", y=");
+	String[] parts = s.tsplit(", y=");
 	return { str::to_int(parts[0]), str::to_int(parts[1]) };
 }
 fn CoordPairList load_sensors()
 {
-	File f;
-	f.open("sensor.txt", "rb")!!;
+	File f = file::open("sensor.txt", "rb")!!;
 	defer (void)f.close();
 	CoordPairList list;
 	list.init();
@@ -24,7 +23,7 @@ fn CoordPairList load_sensors()
 		{
 			String line = f.tgetline();
 			line = line["Sensor at x=".len..];
-			String[] parts = str::tsplit(line, ": closest beacon is at x=");
+			String[] parts = line.tsplit(": closest beacon is at x=");
 			int[<2>] sensor_at = parse_coord(parts[0])!!;
 			int[<2>] beacon_at = parse_coord(parts[1])!!;
 			list.append( { sensor_at, beacon_at });
@@ -118,7 +117,7 @@ fn void part2(CoordPairList list)
 			}
 		}
 	}
-	io::println("No beacon found.");
+	io::printn("No beacon found.");
 }
 
 fn void main()

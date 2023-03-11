@@ -14,8 +14,8 @@ enum Result : int(int points, int offset)
 	WIN(6, 1),
 }
 
-fn Choice Choice.loses_to(Choice c) = (Choice)((c.ordinal + 1) % 3);
-fn Choice Choice.defeats(Choice c) = (Choice)((c.ordinal + 2) % 3);
+fn Choice Choice.loses_to(Choice c) => (Choice)((c.ordinal + 1) % 3);
+fn Choice Choice.defeats(Choice c) => (Choice)((c.ordinal + 2) % 3);
 
 fn Result Choice.result_against(Choice c, Choice other)
 {
@@ -24,7 +24,7 @@ fn Result Choice.result_against(Choice c, Choice other)
 	return Result.WIN;
 }
 
-fn Choice Result.choice_from_other(Result r, Choice other) = (Choice)((other.ordinal + r.offset) % 3);
+fn Choice Result.choice_from_other(Result r, Choice other) => (Choice)((other.ordinal + r.offset) % 3);
 
 struct Select
 {
@@ -60,8 +60,7 @@ fn Select! selectFromString(String line)
 
 fn void part1()
 {
-	File f;
-	f.open("solution.txt", "rb")!!;
+	File f = file::open("solution.txt", "rb")!!;
 	defer (void)f.close();
 	int points = 0;
 	while (!f.eof())
@@ -77,8 +76,7 @@ fn void part1()
 
 fn void part2()
 {
-	File f;
-	f.open("solution.txt", "rb")!!;
+	File f = file::open("solution.txt", "rb")!!;
 	defer (void)f.close();
 	int points = 0;
 	while (!f.eof())

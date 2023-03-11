@@ -49,8 +49,7 @@ fn Select! selectFromString(String line)
 
 fn void part1()
 {
-	File f;
-	f.open("solution.txt", "rb")!!;
+	File f = file::open("solution.txt", "rb")!!;
 	defer (void)f.close();
 	int points = 0;
 	while (!f.eof())
@@ -79,8 +78,7 @@ fn void part1()
 
 fn void part2()
 {
-	File f;
-	f.open("solution.txt", "rb")!!;
+	File f = file::open("solution.txt", "rb")!!;
 	defer (void)f.close();
 	int points = 0;
 	while (!f.eof())

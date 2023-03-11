@@ -25,8 +25,7 @@ fn void print_monkeys(Monkey[] monkeys)
 
 fn Monkey[] load_monkeys(Monkey[] monkeys)
 {
-	File f;
-	f.open("monkey.txt", "rb")!!;
+	File f = file::open("monkey.txt", "rb")!!;
 	defer (void)f.close();
 	int max_monkey = 0;
 	while (!f.eof())
@@ -36,26 +35,26 @@ fn Monkey[] load_monkeys(Monkey[] monkeys)
 			// Very lazy parsing, assuming a lot about the format.
 			String line = f.tgetline();
 			if (line.len == 0) continue;
-            String[] commands = str::tsplit(line, " ");
+            String[] commands = line.tsplit(" ");
             int monkey_num = str::to_int(commands[1][..^2])!!;
             if (monkey_num > max_monkey) max_monkey = monkey_num;
             Monkey* active_monkey = &monkeys[monkey_num];
 			line = f.tgetline();
-			String[] items = str::tsplit(str::tsplit(line, ": ")[1], ", ");
+			String[] items = line.tsplit(": ")[1].tsplit(", ");
             foreach (String item : items)
             {
 				active_monkey.items[active_monkey.item_count++] = str::to_int(item)!!;
             }
 			line = f.tgetline();
-			String[] op = str::tsplit(str::tsplit(line, "= old ")[1], " ");
+			String[] op = line.tsplit("= old ")[1].tsplit(" ");
 			active_monkey.op_is_mult = op[0][0] == '*';
 			active_monkey.other_op = op[1] == "old" ? -1 : str::to_int(op[1])!!;
 			line = f.tgetline();
-			active_monkey.test = str::to_int(str::tsplit(line, "by ")[1])!!;
+			active_monkey.test = str::to_int(line.tsplit("by ")[1])!!;
 			line = f.tgetline();
-			active_monkey.on_true = str::to_int(str::tsplit(line, "key ")[1])!!;
+			active_monkey.on_true = str::to_int(line.tsplit("key ")[1])!!;
 			line = f.tgetline();
-			active_monkey.on_false = str::to_int(str::tsplit(line, "key ")[1])!!;
+			active_monkey.on_false = str::to_int(line.tsplit("key ")[1])!!;
         };
     }
     return monkeys[..max_monkey];

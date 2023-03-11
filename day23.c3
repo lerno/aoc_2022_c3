@@ -10,18 +10,17 @@ const int PADDING = 100;
 
 fn void print_map(CharsArray* list)
 {
-	io::println("-----");
+	io::printn("-----");
 	foreach (String line : list)
 	{
-		io::println(line);
+		io::printn(line);
 	}
-	io::println("-----");
+	io::printn("-----");
 }
 
 fn void load_map(CharsArray* list)
 {
-	File f;
-	f.open("crater.txt", "rb")!!;
+	File f = file::open("crater.txt", "rb")!!;
 	defer (void)f.close();
 	isz width;
 	char[PADDING] spacing;
@@ -32,16 +31,16 @@ fn void load_map(CharsArray* list)
 		{
 			String line = f.tgetline();
 			width = line.len;
-			line = str::tconcat(&spacing, line);
-			list.append(str::copy(str::tconcat(line, &spacing)));
+			line = ((String)&spacing).tconcat(line);
+			list.append(line.tconcat((String)&spacing).copy());
 		};
 	}
-	String top_line = array::alloc(char, width + PADDING * 2);
+	String top_line = (String)malloc(char, width + PADDING * 2);
 	top_line[..] = '.';
 	for (int i = 0; i < PADDING; i++)
 	{
-		list.insert_at(0, str::copy(top_line));
-		list.append(str::copy(top_line));
+		list.insert_at(0, top_line.copy());
+		list.append(top_line.copy());
 	}
 }
 

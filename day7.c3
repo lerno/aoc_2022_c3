@@ -45,8 +45,7 @@ fn Directory *handle_command(String command, Directory* top, Directory* current_
 
 fn void parse_dir(Directory *top)
 {
-	File f;
-	f.open("dir.txt", "rb")!!;
+	File f = file::open("dir.txt", "rb")!!;
 	defer (void)f.close();
 	Directory* current_dir;
 	while TOP: (!f.eof())
@@ -60,12 +59,12 @@ fn void parse_dir(Directory *top)
 		}
 		if (line[0..2] == "dir")
 		{
-			Directory *new_dir = talloc(Directory);
+			Directory *new_dir = tmalloc(Directory);
 			*new_dir = { .name = line[4..], .parent_dir = current_dir };
 			current_dir.other_dirs.append(new_dir);
 			continue;
 		}
-		String[] split = str::tsplit(line, " ");
+		String[] split = line.tsplit(" ");
 		assert(split.len == 2);
 		current_dir.own_files_size += str::to_long(split[0])!!;
 	}

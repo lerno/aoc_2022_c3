@@ -27,7 +27,7 @@ fn WalkedMap* Map.create_temp_empty_walked_map(Map* map)
 {
 	usz height = map.map.len();
 	usz width = map.map.get(0).len;
-	WalkedMap *w = talloc(WalkedMap);
+	WalkedMap *w = tmalloc(WalkedMap);
 	w.walked = tcalloc(int.sizeof * height * width);
 	w.size = { (int)width, (int)height };
 	return w;
@@ -50,7 +50,7 @@ fn bool WalkedMap.walk(WalkedMap* this, int[<2>] loc, int steps)
 
 fn void WalkedMap.show(WalkedMap* this)
 {
-	io::println("-----------------");
+	io::printn("-----------------");
 	for (int y = 0; y < this.size[1]; y++)
 	{
 		io::printf("|");
@@ -59,14 +59,13 @@ fn void WalkedMap.show(WalkedMap* this)
 			int val = this.walked[x + y * this.size[0]];
 			io::printf("%c", val ? val + '0' - 1 : ' ');
 		}
-		io::println("|");
+		io::printn("|");
 	}
 }
 
 fn Map* load_heightmap()
 {
-	File f;
-	f.open("heightmap.txt", "rb")!!;
+	File f = file::open("heightmap.txt", "rb")!!;
 	defer (void)f.close();
 	Map* map = malloc(Map);
 	map.map.init();

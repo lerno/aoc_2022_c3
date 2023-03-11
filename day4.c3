@@ -3,7 +3,7 @@ import std::io;
 
 fn int[2]! parse_range(String range)
 {
-	String[] ranges = str::tsplit(range, "-");
+	String[] ranges = range.tsplit("-");
 	assert(ranges.len == 2);
 	return { str::to_int(ranges[0]), str::to_int(ranges[1]) };
 }
@@ -20,8 +20,7 @@ fn bool range_contains_any(int[2] range1, int[2] range2)
 
 fn void part1()
 {
-	File f;
-	f.open("camp.txt", "rb")!!;
+	File f = file::open("camp.txt", "rb")!!;
 	defer (void)f.close();
 	int total = 0;
 	while NEXT: (!f.eof())
@@ -29,7 +28,7 @@ fn void part1()
 		@pool()
 		{
 			String line = f.tgetline();
-			String[] parts = str::tsplit(line, ",");
+			String[] parts = line.tsplit(",");
 			assert(parts.len == 2);
 
 			int[2] range1 = parse_range(parts[0])!!;
@@ -43,8 +42,7 @@ fn void part1()
 
 fn void part2()
 {
-	File f;
-	f.open("camp.txt", "rb")!!;
+	File f = file::open("camp.txt", "rb")!!;
 	defer (void)f.close();
 	int total = 0;
 	while NEXT: (!f.eof())
@@ -52,7 +50,7 @@ fn void part2()
 		@pool()
 		{
 			String line = f.tgetline();
-			String[] parts = str::tsplit(line, ",");
+			String[] parts = line.tsplit(",");
 			assert(parts.len == 2);
 
 			int[2] range1 = parse_range(parts[0])!!;

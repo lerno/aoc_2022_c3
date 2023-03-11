@@ -3,8 +3,7 @@ import libc;
 
 fn void main()
 {
-	File f;
-	f.open("calories.txt", "rb")!!;
+	File f = file::open("calories.txt", "rb")!!;
 	defer (void)f.close();
 	usz current_entry = 0;
 	usz max_entry = 0;

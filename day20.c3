@@ -8,8 +8,7 @@ define LongList = List<long>;
 
 fn void load_crypto(LongList* list, LongList* pos, long key)
 {
-	File f;
-	f.open("crypto.txt", "rb")!!;
+	File f = file::open("crypto.txt", "rb")!!;
 	defer (void)f.close();
 	while (!f.eof())
 	{
@@ -37,7 +36,7 @@ macro print_order(LongList pos)
    	{
 		io::printf("%s ", x);
 	}
-    io::println();
+    io::printn();
 }
 
 fn void print_list(LongList list, LongList pos)
@@ -48,7 +47,7 @@ fn void print_list(LongList list, LongList pos)
 	{
        	io::printf("%s ", value_at_pos(list, pos, i));
 	}
-    io::println();
+    io::printn();
 }
 
 

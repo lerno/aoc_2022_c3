@@ -34,8 +34,7 @@ macro bool StateCache.equals(StateCache* cache, StateCache other)
 
 fn DString load_jets()
 {
-	File f;
-	f.open("jets.txt", "rb")!!;
+	File f = file::open("jets.txt", "rb")!!;
 	defer (void)f.close();
 	return f.getline();
 }
@@ -156,7 +155,7 @@ fn void land_shape(Shape* shape, int[<2>] location)
 
 fn void draw_field()
 {
-	io::println("+-----+");
+	io::printn("+-----+");
 	for (int i = find_height(); i >= 0; i--)
 	{
 		GameRow row = game[i];
@@ -164,9 +163,9 @@ fn void draw_field()
 		{
 			io::putchar(row.bit(j) ? '#' : '.');
 		}
-		io::println();
+		io::printn();
 	}
-	io::println("+-----+");
+	io::printn("+-----+");
 }
 
 macro long adjust_lowest_bounds()
@@ -273,7 +272,7 @@ fn void solve(String winds, long rocks)
 fn void main()
 {
 	DString s = load_jets();
-	defer s.destroy();
+	defer s.free();
 	solve(s.str(), 2022);
 	solve(s.str(), 1000000000000i64);
 }

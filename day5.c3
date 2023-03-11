@@ -34,8 +34,7 @@ fn int init_piles(CharList[MAX_PILES]* piles, File* f)
 
 macro void @process_moves(; @body(int move_amount, CharList* a, CharList *b))
 {
-	File f;
-	f.open("crates.txt", "rb")!!;
+	File f = file::open("crates.txt", "rb")!!;
 	defer (void)f.close();
 
 	CharList[MAX_PILES] piles;
@@ -45,7 +44,7 @@ macro void @process_moves(; @body(int move_amount, CharList* a, CharList *b))
 		@pool()
 		{
 			String line = f.tgetline();
-			String[] command = str::split(line, " ");
+			String[] command = line.split(" ");
 			assert(command.len == 6);
 			int move_amount = str::to_int(command[1])!!;
 			int from = str::to_int(command[3])!!;
@@ -60,7 +59,7 @@ macro void @process_moves(; @body(int move_amount, CharList* a, CharList *b))
 	{
 		io::printf("%c", *piles[i].last());
 	}
-	io::println();
+	io::printn();
 }
 
 

@@ -24,8 +24,7 @@ int width_spaces;
 
 fn void load_map()
 {
-	File f;
-	f.open("map.txt", "rb")!!;
+	File f = file::open("map.txt", "rb")!!;
 	defer (void)f.close();
 	int y = 0;
 	width = 0;
@@ -41,15 +40,15 @@ fn void load_map()
 				switch (c)
 				{
 					case '#':
-						map[x][y] = MapType.BLOCK;
+						map[x][y] = (int)MapType.BLOCK;
 					case '.':
 						if (start[0] < 0)
 						{
 							start = { x, y };
 						}
-						map[x][y] = MapType.SPACE;
+						map[x][y] = (int)MapType.SPACE;
 					case ' ':
-						map[x][y] = MapType.VOID;
+						map[x][y] = (int)MapType.VOID;
 					default:
 						unreachable();
 				}
@@ -60,7 +59,7 @@ fn void load_map()
 	height = y;
 	side = y > width ? y / 4 : width / 4;
 	width_spaces = width / side;
-	commands = str::copy(f.tgetline());
+	commands = f.tgetline().copy();
 }
 
 fn int region_from_pos(int[<2>] pos)

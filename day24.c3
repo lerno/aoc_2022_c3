@@ -19,8 +19,7 @@ int height;
 int common;
 fn void load_map()
 {
-	File f;
-	f.open("blizzard.txt", "rb")!!;
+	File f = file::open("blizzard.txt", "rb")!!;
 	defer (void)f.close();
 	@pool()
 	{

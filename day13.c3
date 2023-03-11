@@ -110,8 +110,7 @@ fn Packet* packet_from_line(String line)
 }
 fn PacketPairs* load_packets()
 {
-	File f;
-	f.open("packets.txt", "rb")!!;
+	File f = file::open("packets.txt", "rb")!!;
 	defer (void)f.close();
 	PacketPairs* packet = malloc(PacketPairs);
 	packet.init();

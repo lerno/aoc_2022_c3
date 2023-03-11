@@ -20,8 +20,7 @@ fn void update_max(int entry)
 
 fn void main()
 {
-	File f;
-	f.open("calories.txt", "rb")!!;
+	File f = file::open("calories.txt", "rb")!!;
 	defer (void)f.close();
 	int current_entry = 0;
 	while (!f.eof())

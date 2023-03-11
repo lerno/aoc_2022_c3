@@ -18,7 +18,7 @@ fn void draw_crt(bool[40][6]* crt)
 		{
 			io::print(pixel ? "#" : " ");
 		}
-		io::println();
+		io::printn();
 	}
 }
 
@@ -34,8 +34,7 @@ fn void update_crt(bool[40][6]* crt, int cycle, int x)
 
 fn void part2()
 {
-	File f;
-	f.open("code.txt", "rb")!!;
+	File f = file::open("code.txt", "rb")!!;
 	defer (void)f.close();
 	bool[40][6] crt;
 	int cycle = 0;
@@ -45,7 +44,7 @@ fn void part2()
 		@pool()
 		{
 			String line = f.tgetline();
-            String[] commands = str::tsplit(line, " ");
+            String[] commands = line.tsplit(" ");
             switch (commands[0])
             {
                 case "noop":
@@ -66,8 +65,7 @@ fn void part2()
 }
 fn void part1()
 {
-	File f;
-	f.open("code.txt", "rb")!!;
+	File f = file::open("code.txt", "rb")!!;
 	defer (void)f.close();
 	int cycle = 0;
 	int x = 1;
@@ -77,7 +75,7 @@ fn void part1()
 		@pool()
 		{
 			String line = f.tgetline();
-            String[] commands = str::tsplit(line, " ");
+            String[] commands = line.tsplit(" ");
             switch (commands[0])
             {
                 case "noop":

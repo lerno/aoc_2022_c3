@@ -34,8 +34,7 @@ fn void populate_tunnels(Valve[] valves, int i, Valve* v, int tunnel, int cost)
 
 fn Valve[] load_valves(Valve[100]* available_slots)
 {
-	File f;
-	f.open("valves.txt", "rb")!!;
+	File f = file::open("valves.txt", "rb")!!;
 	defer (void)f.close();
 	int count = 0;
 	while (!f.eof())
@@ -43,8 +42,8 @@ fn Valve[] load_valves(Valve[100]* available_slots)
 		@pool()
 		{
 			String line = f.tgetline();
-			String[] parts = str::tsplit(line, " ");
-			String name = str::copy(parts[1]);
+			String[] parts = line.tsplit(" ");
+			String name = parts[1].copy();
 			String rate_part = parts[4];
 			int val = v.@get_or_set(name, (int)v.count);
 			Valve *valve_entry = &(*available_slots)[val];
@@ -60,7 +59,7 @@ fn Valve[] load_valves(Valve[100]* available_slots)
 				{
 					valve = valve[..^2];
 				}
-				val = v.@get_or_set(str::copy(valve), (int)v.count);
+				val = v.@get_or_set(valve.copy(), (int)v.count);
 				valve_entry.tunnels[valve_entry.tunnel_count++] = val;
 			}
        };

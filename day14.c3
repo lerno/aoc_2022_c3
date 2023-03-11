@@ -20,14 +20,13 @@ enum EnvType
 
 fn int[<2>]! str_to_coord(String str)
 {
-	String[] parts = str::tsplit(str, ",");
+	String[] parts = str.tsplit(",");
 	return { str::to_int(parts[0]), str::to_int(parts[1]) };
 }
 
 fn Environment* load_environment(EnvType type)
 {
-	File f;
-	f.open("cave.txt", "rb")!!;
+	File f = file::open("cave.txt", "rb")!!;
 	defer (void)f.close();
 	Environment* env = calloc(Environment.sizeof);
 	int max_y = 0;
@@ -37,7 +36,7 @@ fn Environment* load_environment(EnvType type)
 		{
 			String line = f.tgetline();
 			int[<2>] last = { 0, 0 };
-			foreach (part : str::tsplit(line, " -> "))
+			foreach (part : line.tsplit(" -> "))
 			{
 				int[<2>] next = str_to_coord(part)!!;
 				if (next[1] > max_y) max_y = next[1];
