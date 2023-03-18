@@ -33,7 +33,7 @@ fn void part1()
 
 			foreach (c : comp2)
 			{
-				if (try(set.get(c)))
+				if (try? set.get(c))
 				{
 					total += evaluate(c);
 					continue NEXT;
@@ -68,11 +68,11 @@ fn void part2()
 
 			foreach (c : line2)
 			{
-				if (try(set.get(c))) set2.set(c, c);
+				if (try set.get(c)?) set2.set(c, c);
 			}
 			foreach (c : line3)
 			{
-				if (try(set2.get(c)))
+				if (try? set2.get(c))
 				{
 					set2.set(c, c);
 					total += evaluate(c);
