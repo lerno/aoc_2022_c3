@@ -9,11 +9,11 @@ struct PacketPair
 	Packet* p2;
 }
 
-define PacketList = List<Packet*>;
+typedef PacketList = List<Packet*>;
 
-define Packet = List<PacketElement*>;
+typedef Packet = List<PacketElement*>;
 
-define PacketPairs = List<PacketPair>;
+typedef PacketPairs = List<PacketPair>;
 
 struct PacketElement
 {

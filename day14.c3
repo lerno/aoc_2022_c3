@@ -3,7 +3,7 @@ import std::io;
 import std::math;
 
 const ENV_SIDE = 1000;
-define Environment = int[ENV_SIDE][ENV_SIDE];
+typedef Environment = int[ENV_SIDE][ENV_SIDE];
 
 enum Result
 {

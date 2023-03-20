@@ -4,8 +4,8 @@ import std::math;
 import std::collections::map;
 import std::collections::list;
 
-define MonkeyList = List<Monkey>;
-define NameMap = HashMap<String, MonkeyId>;
+typedef MonkeyList = List<Monkey>;
+typedef NameMap = HashMap<String, MonkeyId>;
 
 enum Action
 {
@@ -16,7 +16,7 @@ enum Action
 	MINUS,
 }
 
-define MonkeyId = distinct int;
+typedef MonkeyId = distinct int;
 
 struct Monkey
 {

@@ -4,7 +4,7 @@ import std::math;
 import std::collections::map;
 import std::collections::list;
 
-define StateCacheMap = HashMap<StateCache, int>;
+typedef StateCacheMap = HashMap<StateCache, int>;
 
 struct StateCache
 {
@@ -85,7 +85,7 @@ Shape[5] shapes = {
 	}
 };
 
-define GameRow = distinct char;
+typedef GameRow = distinct char;
 GameRow[1000] game;
 
 macro bool GameRow.is_full(GameRow row)

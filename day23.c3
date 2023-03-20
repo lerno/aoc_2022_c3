@@ -3,7 +3,7 @@ import std::io;
 import std::math;
 import std::collections::list;
 
-define CharsArray = List<String>;
+typedef CharsArray = List<String>;
 
 // Pick a padding that doesn't hit the asserts.
 const int PADDING = 100;

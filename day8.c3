@@ -2,7 +2,7 @@ module day8;
 import std::collections::list;
 import std::io;
 
-define Forest = distinct List<String>;
+typedef Forest = distinct List<String>;
 fn Forest* parse_forest()
 {
 	File f = file::open("forest.txt", "rb")!!;

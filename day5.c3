@@ -2,7 +2,7 @@ module day5;
 import std::io;
 import std::collections::list;
 
-define CharList = list::List<char>;
+typedef CharList = list::List<char>;
 
 const MAX_PILES = 20;
 
