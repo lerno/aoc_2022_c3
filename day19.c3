@@ -42,19 +42,19 @@ fn void load_blueprints()
 			String line = f.tgetline();
 			String[] split = line.tsplit("Each ore robot costs ");
 			split = split[1].tsplit(" ore. Each clay robot costs ");
-			print.ore_cost = { [ORE] = str::to_int(split[0])!! };
+			print.ore_cost = { [ORE] = split[0].to_int()!! };
 			split = split[1].tsplit(" ore. Each obsidian robot costs ");
-			print.clay_cost = { [ORE] = str::to_int(split[0])!! };
+			print.clay_cost = { [ORE] = split[0].to_int()!! };
 			split = split[1].tsplit(" clay. Each geode robot costs ");
 			String[] split2 = split[0].tsplit(" ore and ");
 			print.obsidian_cost = {
-				[ORE] = str::to_int(split2[0])!!,
-				[CLAY] = str::to_int(split2[1])!!
+				[ORE] = split2[0].to_int()!!,
+				[CLAY] = split2[1].to_int()!!
  			};
 			split2 = split[1].tsplit(" ore and ");
 			print.geode_cost = {
-				[ORE] = str::to_int(split2[0])!!,
-				[OBSIDIAN] = str::to_int(split2[1][..^11])!!
+				[ORE] = split2[0].to_int()!!,
+				[OBSIDIAN] = split2[1][..^11].to_int()!!
  			};
  			print.max_cost = math::max(math::max(math::max(print.geode_cost, print.obsidian_cost), print.clay_cost), print.ore_cost);
 			blueprints.append(print);

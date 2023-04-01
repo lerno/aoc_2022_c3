@@ -5,7 +5,7 @@ fn int[2]! parse_range(String range)
 {
 	String[] ranges = range.tsplit("-");
 	assert(ranges.len == 2);
-	return { str::to_int(ranges[0]), str::to_int(ranges[1]) };
+	return { ranges[0].to_int(), ranges[1].to_int() };
 }
 
 fn bool range_contains(int[2] range1, int[2] range2)

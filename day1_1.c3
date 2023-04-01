@@ -20,7 +20,7 @@ fn void main()
 				index_elf++;
 				continue;
 			}
-			current_entry += str::to_int(line)!!;
+			current_entry += line.to_int()!!;
 			if (current_entry > max_entry)
 			{
 				max_elf = index_elf;

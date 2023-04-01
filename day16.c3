@@ -49,7 +49,7 @@ fn Valve[] load_valves(Valve[100]* available_slots)
 			Valve *valve_entry = &(*available_slots)[val];
 			assert(valve_entry.id == 0);
 			count++;
-			int rate = str::to_int(rate_part[5..^2])!!;
+			int rate = rate_part[5..^2].to_int()!!;
 			int len = parts.len;
 			*valve_entry = { .rate = rate, .id = val, .name = name };
 			for (int i = 9; i < parts.len; i++)

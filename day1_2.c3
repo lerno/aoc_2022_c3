@@ -34,7 +34,7 @@ fn void main()
 				current_entry = 0;
 				continue;
 			}
-			current_entry += str::to_int(line)!!;
+			current_entry += line.to_int()!!;
 		};
 	}
 	if (current_entry) update_max(current_entry);

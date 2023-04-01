@@ -74,7 +74,7 @@ fn int parse_list(void* list1, String list_inner)
 				index++;
 			}
 			PacketElement* element = malloc(PacketElement);
-			*element = { .is_subpacket = false, .value = str::to_int(list_inner[start..(index - 1)])!! };
+			*element = { .is_subpacket = false, .value = list_inner[start..(index - 1)].to_int()!! };
 			packet.append(element);
 			if (index == len) return len;
 			if (c == ']') return index + 1;

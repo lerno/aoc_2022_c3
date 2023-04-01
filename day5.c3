@@ -46,9 +46,9 @@ macro void @process_moves(; @body(int move_amount, CharList* a, CharList *b))
 			String line = f.tgetline();
 			String[] command = line.split(" ");
 			assert(command.len == 6);
-			int move_amount = str::to_int(command[1])!!;
-			int from = str::to_int(command[3])!!;
-			int to = str::to_int(command[5])!!;
+			int move_amount = command[1].to_int()!!;
+			int from = command[3].to_int()!!;
+			int to = command[5].to_int()!!;
 			assert(from <= piles_used && to <= piles_used && from > 0 && to > 0);
 			CharList* from_list = &piles[from - 1];
             CharList* to_list = &piles[to - 1];

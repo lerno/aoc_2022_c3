@@ -218,7 +218,7 @@ fn void part1()
 		{
 			if (commands[i] >= 'A')
 			{
-				steps = str::to_int(commands[index..(i - 1)])!!;
+				steps = commands[index..(i - 1)].to_int()!!;
 				new_facing = commands[i] == 'R' ? 1 : -1;
 				index = i + 1;
 				break;
@@ -227,7 +227,7 @@ fn void part1()
 		if (steps == -1)
 		{
 			new_facing = 4;
-			steps = str::to_int(commands[index..])!!;
+			steps = commands[index..].to_int()!!;
 			index = len;
 		}
 		int[<2>] move = facing_diff(facing);
@@ -288,7 +288,7 @@ fn void part2()
 		{
 			if (commands[i] >= 'A')
 			{
-				steps = str::to_int(commands[index..(i - 1)])!!;
+				steps = commands[index..(i - 1)].to_int()!!;
 				new_facing = commands[i] == 'R' ? 1 : -1;
 				index = i + 1;
 				break;
@@ -297,7 +297,7 @@ fn void part2()
 		if (steps == -1)
 		{
 			new_facing = 4;
-			steps = str::to_int(commands[index..])!!;
+			steps = commands[index..].to_int()!!;
 			index = len;
 		}
 		int[<2>] move = facing_diff(facing);

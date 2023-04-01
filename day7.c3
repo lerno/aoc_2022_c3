@@ -66,7 +66,7 @@ fn void parse_dir(Directory *top)
 		}
 		String[] split = line.tsplit(" ");
 		assert(split.len == 2);
-		current_dir.own_files_size += str::to_long(split[0])!!;
+		current_dir.own_files_size += split[0].to_long()!!;
 	}
 }
 

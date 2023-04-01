@@ -21,7 +21,7 @@ enum EnvType
 fn int[<2>]! str_to_coord(String str)
 {
 	String[] parts = str.tsplit(",");
-	return { str::to_int(parts[0]), str::to_int(parts[1]) };
+	return { parts[0].to_int(), parts[1].to_int() };
 }
 
 fn Environment* load_environment(EnvType type)

@@ -60,7 +60,7 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 			}
 			if (parts[1][0] < 'a')
 			{
-				m.value = str::to_long(parts[1])!!;
+				m.value = parts[1].to_long()!!;
 				m.action = Action.VALUE;
 			}
 			else

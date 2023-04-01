@@ -55,7 +55,7 @@ fn void part2()
                     update_crt(&crt, cycle, x);
                     cycle++;
                     update_crt(&crt, cycle, x);
-                    x += str::to_int(commands[1])!!;
+                    x += commands[1].to_int()!!;
                 default:
                     unreachable("Invalid input");
             }
@@ -86,7 +86,7 @@ fn void part1()
                     signal_strength += update_signal_strength(cycle, x);
                     cycle++;
                     signal_strength += update_signal_strength(cycle, x);
-                    x += str::to_int(commands[1])!!;
+                    x += commands[1].to_int()!!;
                 default:
                     unreachable("Invalid input");
             }

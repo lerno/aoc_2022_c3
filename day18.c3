@@ -16,7 +16,7 @@ fn void load_lava()
 		@pool()
 		{
 			String[] parts = f.tgetline().tsplit(",");
-			locations[str::to_int(parts[0])!!][str::to_int(parts[1])!!][str::to_int(parts[2])!!] = 7;
+			locations[parts[0].to_int()!!][parts[1].to_int()!!][parts[2].to_int()!!] = 7;
 		};
 	}
 }

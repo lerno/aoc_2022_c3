@@ -70,7 +70,7 @@ macro void part(int $part)
 	{
 		String line = f.tgetline();
 		assert(line.len);
-		process_line(&state, line[0], str::to_int(line[2..])!!);
+		process_line(&state, line[0], line[2..].to_int()!!);
 	}
 	int sum = 0;
 	foreach (bool[MAP_SIZE]* &row : state.map)

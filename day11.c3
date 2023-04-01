@@ -36,25 +36,25 @@ fn Monkey[] load_monkeys(Monkey[] monkeys)
 			String line = f.tgetline();
 			if (line.len == 0) continue;
             String[] commands = line.tsplit(" ");
-            int monkey_num = str::to_int(commands[1][..^2])!!;
+            int monkey_num = commands[1][..^2].to_int()!!;
             if (monkey_num > max_monkey) max_monkey = monkey_num;
             Monkey* active_monkey = &monkeys[monkey_num];
 			line = f.tgetline();
 			String[] items = line.tsplit(": ")[1].tsplit(", ");
             foreach (String item : items)
             {
-				active_monkey.items[active_monkey.item_count++] = str::to_int(item)!!;
+				active_monkey.items[active_monkey.item_count++] = item.to_int()!!;
             }
 			line = f.tgetline();
 			String[] op = line.tsplit("= old ")[1].tsplit(" ");
 			active_monkey.op_is_mult = op[0][0] == '*';
-			active_monkey.other_op = op[1] == "old" ? -1 : str::to_int(op[1])!!;
+			active_monkey.other_op = op[1] == "old" ? -1 : op[1].to_int()!!;
 			line = f.tgetline();
-			active_monkey.test = str::to_int(line.tsplit("by ")[1])!!;
+			active_monkey.test = line.tsplit("by ")[1].to_int()!!;
 			line = f.tgetline();
-			active_monkey.on_true = str::to_int(line.tsplit("key ")[1])!!;
+			active_monkey.on_true = line.tsplit("key ")[1].to_int()!!;
 			line = f.tgetline();
-			active_monkey.on_false = str::to_int(line.tsplit("key ")[1])!!;
+			active_monkey.on_false = line.tsplit("key ")[1].to_int()!!;
         };
     }
     return monkeys[..max_monkey];

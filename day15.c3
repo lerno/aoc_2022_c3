@@ -9,7 +9,7 @@ typedef CoordPairList = List<int[<2>][2]>;
 fn int[<2>]! parse_coord(String s)
 {
 	String[] parts = s.tsplit(", y=");
-	return { str::to_int(parts[0]), str::to_int(parts[1]) };
+	return { parts[0].to_int(), parts[1].to_int() };
 }
 fn CoordPairList load_sensors()
 {

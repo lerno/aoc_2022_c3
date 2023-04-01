@@ -68,7 +68,7 @@ fn void part2()
 
 			foreach (c : line2)
 			{
-				if (try set.get(c)?) set2.set(c, c);
+				if (try? set.get(c)) set2.set(c, c);
 			}
 			foreach (c : line3)
 			{
