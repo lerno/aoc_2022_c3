@@ -28,21 +28,21 @@ fault InvalidData
 
 fn Choice[2]! choicesFromString(String line)
 {
-	if (line.len != 3) return InvalidData.FAILED!;
+	if (line.len != 3) return InvalidData.FAILED?;
 	char c1 = line[0];
-	if (c1 < 'A' || c1 > 'C') return InvalidData.FAILED!;
+	if (c1 < 'A' || c1 > 'C') return InvalidData.FAILED?;
 	char c2 = line[2];
-	if (c2 < 'X' || c2 > 'Z') return InvalidData.FAILED!;
+	if (c2 < 'X' || c2 > 'Z') return InvalidData.FAILED?;
 	return { (Choice)(c1 - 'A'), (Choice)(c2 - 'X') };
 }
 
 fn Select! selectFromString(String line)
 {
-	if (line.len != 3) return InvalidData.FAILED!;
+	if (line.len != 3) return InvalidData.FAILED?;
 	char c1 = line[0];
-	if (c1 < 'A' || c1 > 'C') return InvalidData.FAILED!;
+	if (c1 < 'A' || c1 > 'C') return InvalidData.FAILED?;
 	char c2 = line[2];
-	if (c2 < 'X' || c2 > 'Z') return InvalidData.FAILED!;
+	if (c2 < 'X' || c2 > 'Z') return InvalidData.FAILED?;
 	return { (Choice)(c1 - 'A'), (Result)(c2 - 'X') };
 }
 
