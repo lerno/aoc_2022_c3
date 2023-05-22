@@ -3,7 +3,7 @@ import std::io;
 import std::math;
 import std::collections::list;
 
-typedef CharsArray = List<String>;
+def CharsArray = List<String>;
 
 const int PADDING = 100;
 

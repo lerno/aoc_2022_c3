@@ -4,7 +4,7 @@ import std::math;
 import std::collections::map;
 import std::collections::list;
 
-typedef LongList = List<long>;
+def LongList = List<long>;
 
 fn void load_crypto(LongList* list, LongList* pos, long key)
 {

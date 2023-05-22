@@ -3,7 +3,7 @@ import std::io;
 import std::math;
 import std::collections::list;
 
-typedef MapList = List<String>;
+def MapList = List<String>;
 
 struct Map
 {

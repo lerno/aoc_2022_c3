@@ -2,7 +2,7 @@ module day7;
 import std::collections::list;
 import std::io;
 
-typedef DirList = List<Directory*>;
+def DirList = List<Directory*>;
 
 struct Directory
 {

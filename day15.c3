@@ -4,7 +4,7 @@ import std::math;
 import std::collections::list;
 import std::collections::priorityqueue;
 
-typedef CoordPairList = List<int[<2>][2]>;
+def CoordPairList = List<int[<2>][2]>;
 
 fn int[<2>]! parse_coord(String s)
 {
