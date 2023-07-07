@@ -4,7 +4,7 @@ import std::math;
 import std::collections::map;
 import std::collections::list;
 
-def BlueprintList = List<Blueprint>;
+def BlueprintList = List(<Blueprint>);
 
 const usz ORE = 0;
 const usz CLAY = 1;

@@ -4,7 +4,7 @@ import std::math;
 import std::collections::map;
 import std::collections::list;
 
-def StateCacheMap = HashMap<StateCache, int>;
+def StateCacheMap = HashMap(<StateCache, int>);
 
 struct StateCache
 {
@@ -273,6 +273,6 @@ fn void main()
 {
 	DString s = load_jets();
 	defer s.free();
-	solve(s.str(), 2022);
-	solve(s.str(), 1000000000000i64);
+	solve(s.as_str(), 2022);
+	solve(s.as_str(), 1000000000000i64);
 }

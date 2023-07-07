@@ -2,7 +2,7 @@ module day3;
 import std::io;
 import std::collections::map;
 
-def CharSet = HashMap<char, char>;
+def CharSet = HashMap(<char, char>);
 
 fn int evaluate(char c)
 {

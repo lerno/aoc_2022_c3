@@ -4,8 +4,8 @@ import std::math;
 import std::collections::map;
 import std::collections::list;
 
-def MonkeyList = List<Monkey>;
-def NameMap = HashMap<String, MonkeyId>;
+def MonkeyList = List(<Monkey>);
+def NameMap = HashMap(<String, MonkeyId>);
 
 enum Action
 {

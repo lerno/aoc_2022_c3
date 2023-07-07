@@ -3,7 +3,7 @@ import std::io;
 import std::math;
 import std::collections::list;
 
-def MapList = List<String>;
+def MapList = List(<String>);
 
 struct Map
 {
@@ -73,7 +73,7 @@ fn Map* load_heightmap()
 	{
 		@pool()
 		{
-			String line = f.getline().str();
+			String line = f.getline().as_str();
 			foreach (int i, &c : line)
 			{
 				if (*c == 'S')

@@ -4,8 +4,8 @@ import std::math;
 import std::collections::map;
 import std::collections::list;
 
-def ValveMap = HashMap<String, int>;
-def IntPairList = List<int[<2>]>;
+def ValveMap = HashMap(<String, int>);
+def IntPairList = List(<int[<2>]>);
 ValveMap v;
 
 struct Valve
