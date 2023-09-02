@@ -34,7 +34,7 @@ fn Environment* load_environment(EnvType type)
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			int[<2>] last = { 0, 0 };
 			foreach (part : line.tsplit(" -> "))
 			{

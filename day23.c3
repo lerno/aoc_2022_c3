@@ -29,7 +29,7 @@ fn void load_map(CharsArray* list)
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			width = line.len;
 			line = ((String)&spacing).tconcat(line);
 			list.append(line.tconcat((String)&spacing).copy());

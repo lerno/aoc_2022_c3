@@ -13,7 +13,7 @@ fn void main()
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			if (!line.len)
 			{
 				current_entry = 0;

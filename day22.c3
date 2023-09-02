@@ -32,7 +32,7 @@ fn void load_map()
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			if (line.len > width) width = line.len;
 			if (!line.len) break;
 			foreach (int x, c : line)
@@ -59,7 +59,7 @@ fn void load_map()
 	height = y;
 	side = y > width ? y / 4 : width / 4;
 	width_spaces = width / side;
-	commands = f.tgetline().copy();
+	commands = f.treadline().copy();
 }
 
 fn int region_from_pos(int[<2>] pos)

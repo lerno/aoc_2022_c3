@@ -36,7 +36,7 @@ fn DString load_jets()
 {
 	File f = file::open("jets.txt", "rb")!!;
 	defer (void)f.close();
-	return f.getline();
+	return f.readline();
 }
 
 struct Shape

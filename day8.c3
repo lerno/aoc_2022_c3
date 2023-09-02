@@ -11,7 +11,7 @@ fn Forest* parse_forest()
 	forest.init(512);
 	while (!f.eof())
 	{
-		String line = f.tgetline();
+		String line = f.treadline();
 		assert(line.len);
 		forest.append(line);
 	}

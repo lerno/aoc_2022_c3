@@ -41,7 +41,7 @@ fn Valve[] load_valves(Valve[100]* available_slots)
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			String[] parts = line.tsplit(" ");
 			String name = parts[1].copy();
 			String rate_part = parts[4];

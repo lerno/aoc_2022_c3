@@ -44,7 +44,7 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			String[] parts = line.tsplit(": ");
 			String name = parts[0].copy();
 			if (name == "root")

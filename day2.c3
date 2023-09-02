@@ -56,7 +56,7 @@ fn void part1()
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			Choice[2] c = choicesFromString(line)!!;
 			points += c[1].ordinal + 1;
 			// Draw
@@ -85,7 +85,7 @@ fn void part2()
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			Select s = selectFromString(line)!!;
 			switch (s.r)
 			{

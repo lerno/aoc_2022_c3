@@ -27,7 +27,7 @@ fn void part1()
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			String[] parts = line.tsplit(",");
 			assert(parts.len == 2);
 
@@ -49,7 +49,7 @@ fn void part2()
 	{
 		@pool()
 		{
-			String line = f.tgetline();
+			String line = f.treadline();
 			String[] parts = line.tsplit(",");
 			assert(parts.len == 2);
 

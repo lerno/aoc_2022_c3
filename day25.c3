@@ -60,7 +60,7 @@ fn void part1()
 	{
 		@pool()
         {
-        	String line = f.tgetline();
+        	String line = f.treadline();
         	total += snafu_to_long(line);
         };
 	}

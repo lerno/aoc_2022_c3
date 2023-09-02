@@ -33,27 +33,27 @@ fn Monkey[] load_monkeys(Monkey[] monkeys)
 		@pool()
 		{
 			// Very lazy parsing, assuming a lot about the format.
-			String line = f.tgetline();
+			String line = f.treadline();
 			if (line.len == 0) continue;
             String[] commands = line.tsplit(" ");
             int monkey_num = commands[1][..^2].to_int()!!;
             if (monkey_num > max_monkey) max_monkey = monkey_num;
             Monkey* active_monkey = &monkeys[monkey_num];
-			line = f.tgetline();
+			line = f.treadline();
 			String[] items = line.tsplit(": ")[1].tsplit(", ");
             foreach (String item : items)
             {
 				active_monkey.items[active_monkey.item_count++] = item.to_int()!!;
             }
-			line = f.tgetline();
+			line = f.treadline();
 			String[] op = line.tsplit("= old ")[1].tsplit(" ");
 			active_monkey.op_is_mult = op[0][0] == '*';
 			active_monkey.other_op = op[1] == "old" ? -1 : op[1].to_int()!!;
-			line = f.tgetline();
+			line = f.treadline();
 			active_monkey.test = line.tsplit("by ")[1].to_int()!!;
-			line = f.tgetline();
+			line = f.treadline();
 			active_monkey.on_true = line.tsplit("key ")[1].to_int()!!;
-			line = f.tgetline();
+			line = f.treadline();
 			active_monkey.on_false = line.tsplit("key ")[1].to_int()!!;
         };
     }

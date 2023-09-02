@@ -23,7 +23,7 @@ fn void part1()
 			CharSet set;
 			set.tinit();
 			set.clear();
-			String line = f.tgetline();
+			String line = f.treadline();
 			assert(line.len % 2 == 0 && line.len > 0);
 
 			String comp1 = line[:line.len / 2];
@@ -58,9 +58,9 @@ fn void part2()
 			CharSet set2;
 			set.tinit();
 			set2.tinit();
-			String line1 = f.tgetline();
-			String line2 = f.tgetline();
-			String line3 = f.tgetline();
+			String line1 = f.treadline();
+			String line2 = f.treadline();
+			String line3 = f.treadline();
 
 			assert(line1.len && line2.len && line3.len);
 

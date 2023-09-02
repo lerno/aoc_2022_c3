@@ -68,7 +68,7 @@ macro void part(int $part)
 	defer (void)f.close();
 	while (!f.eof())
 	{
-		String line = f.tgetline();
+		String line = f.treadline();
 		assert(line.len);
 		process_line(&state, line[0], line[2..].to_int()!!);
 	}
