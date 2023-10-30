@@ -23,7 +23,7 @@ fn void load_map()
 	defer (void)f.close();
 	@pool()
 	{
-		String line = f.treadline();
+		String line = io::treadline(&f)!!;
 		width = line.len - 2;
 	};
 	height = 0;
@@ -31,7 +31,7 @@ fn void load_map()
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			if (line[1] == '#') break;
 			line = line[1..^2];
 			foreach (int i, c : line)

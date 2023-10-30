@@ -32,11 +32,11 @@ macro bool StateCache.equals(StateCache* cache, StateCache other)
 	return true;
 }
 
-fn DString load_jets()
+fn String load_jets()
 {
 	File f = file::open("jets.txt", "rb")!!;
 	defer (void)f.close();
-	return f.readline();
+	return io::readline(&f)!!;
 }
 
 struct Shape
@@ -85,7 +85,7 @@ Shape[5] shapes = {
 	}
 };
 
-def GameRow = distinct char;
+distinct GameRow = char;
 GameRow[1000] game;
 
 macro bool GameRow.is_full(GameRow row)
@@ -184,16 +184,16 @@ macro long adjust_lowest_bounds()
 	return bound;
 }
 
-macro @drop_rock(String winds, int &shape_index, isz &wind_index)
+macro @drop_rock(String winds, int* &shape_index, isz* &wind_index)
 {
 	int start = find_height() + 3;
-	Shape* current_shape = &shapes[shape_index];
-	shape_index = (shape_index + 1) % 5;
+	Shape* current_shape = &shapes[*shape_index];
+	*shape_index = (*shape_index + 1) % 5;
 	int[<2>] location = { 2, start };
 	while (true)
 	{
-		char jet = winds[wind_index];
-		wind_index = (wind_index + 1) % winds.len;
+		char jet = winds[*wind_index];
+		*wind_index = (*wind_index + 1) % winds.len;
 		int[<2>] new_loc = location + { jet == '<' ? -1 : 1, 0 };
 		if (check_collision(current_shape, new_loc))
 		{
@@ -271,8 +271,8 @@ fn void solve(String winds, long rocks)
 
 fn void main()
 {
-	DString s = load_jets();
+	String s = load_jets();
 	defer s.free();
-	solve(s.str_view(), 2022);
-	solve(s.str_view(), 1000000000000i64);
+	solve(s, 2022);
+	solve(s, 1000000000000i64);
 }

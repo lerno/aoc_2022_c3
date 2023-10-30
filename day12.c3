@@ -73,7 +73,7 @@ fn Map* load_heightmap()
 	{
 		@pool()
 		{
-			String line = f.readline().str_view();
+			String line = io::readline(&f)!!;
 			foreach (int i, &c : line)
 			{
 				if (*c == 'S')

@@ -16,7 +16,7 @@ enum Action
 	MINUS,
 }
 
-def MonkeyId = distinct int;
+distinct MonkeyId = int;
 
 struct Monkey
 {
@@ -44,7 +44,7 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			String[] parts = line.tsplit(": ");
 			String name = parts[0].copy();
 			if (name == "root")

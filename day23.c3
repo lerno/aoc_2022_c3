@@ -29,7 +29,7 @@ fn void load_map(CharsArray* list)
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			width = line.len;
 			line = ((String)&spacing).tconcat(line);
 			list.append(line.tconcat((String)&spacing).copy());
@@ -44,9 +44,9 @@ fn void load_map(CharsArray* list)
 	}
 }
 
-macro void @update_target(char &target)
+macro void @update_target(char* &target)
 {
-	target = target == '.' ? 'x' : '%';
+	*target = *target == '.' ? 'x' : '%';
 }
 macro bool is_empty(char c)
 {

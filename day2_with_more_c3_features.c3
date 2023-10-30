@@ -67,7 +67,7 @@ fn void part1()
 	{
 		@pool()
 		{
-			Choice[2] c = choicesFromString(f.treadline())!!;
+			Choice[2] c = choicesFromString(io::treadline(&f)!!)!!;
 			points += c[1].points + c[1].result_against(c[0]).points;
 		};
 	}
@@ -83,7 +83,7 @@ fn void part2()
 	{
 		@pool()
 		{
-			Select s = selectFromString(f.treadline())!!;
+			Select s = selectFromString(io::treadline(&f)!!)!!;
 			points += s.r.points + s.r.choice_from_other(s.c).points;
 		};
 	}

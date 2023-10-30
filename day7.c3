@@ -50,7 +50,7 @@ fn void parse_dir(Directory *top)
 	Directory* current_dir;
 	while TOP: (!f.eof())
 	{
-		String line = f.treadline();
+		String line = io::treadline(&f)!!;
 		if (!line.len) break;
 		if (line[0] == '$')
 		{

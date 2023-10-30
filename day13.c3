@@ -118,10 +118,10 @@ fn PacketPairs* load_packets()
 	{
 		@pool()
 		{
-			Packet* first = packet_from_line(f.treadline());
-			Packet* second = packet_from_line(f.treadline());
+			Packet* first = packet_from_line(io::treadline(&f)!!);
+			Packet* second = packet_from_line(io::treadline(&f)!!);
 			packet.append({ first, second });
-			if (!f.eof()) f.treadline();
+			if (!f.eof()) io::treadline(&f)!!;
         };
     }
     return packet;

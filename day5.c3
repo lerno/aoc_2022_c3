@@ -14,7 +14,7 @@ fn int init_piles(CharList[MAX_PILES]* piles, File* f)
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(f)!!;
 			if (!line.len) return piles_used;
 			int piles_found = (line.len + 1) / 4;
 			assert(piles_found < MAX_PILES && piles_found > 0);
@@ -43,7 +43,7 @@ macro void @process_moves(; @body(int move_amount, CharList* a, CharList *b))
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			String[] command = line.split(" ");
 			assert(command.len == 6);
 			int move_amount = command[1].to_int()!!;

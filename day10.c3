@@ -43,7 +43,7 @@ fn void part2()
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
             String[] commands = line.tsplit(" ");
             switch (commands[0])
             {
@@ -74,7 +74,7 @@ fn void part1()
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
             String[] commands = line.tsplit(" ");
             switch (commands[0])
             {

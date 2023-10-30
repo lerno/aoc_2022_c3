@@ -27,7 +27,7 @@ fn void main()
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			if (!line.len)
 			{
 				update_max(current_entry);

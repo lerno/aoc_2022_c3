@@ -20,7 +20,7 @@ fn void find_packet_start(int check_len)
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			int len = line.len;
 			for OUTER: (int i = 0; i < len - check_len; i++)
 			{

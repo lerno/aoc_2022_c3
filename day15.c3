@@ -21,7 +21,7 @@ fn CoordPairList load_sensors()
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			line = line["Sensor at x=".len..];
 			String[] parts = line.tsplit(": closest beacon is at x=");
 			int[<2>] sensor_at = parse_coord(parts[0])!!;

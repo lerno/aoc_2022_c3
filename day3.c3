@@ -23,7 +23,7 @@ fn void part1()
 			CharSet set;
 			set.tinit();
 			set.clear();
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			assert(line.len % 2 == 0 && line.len > 0);
 
 			String comp1 = line[:line.len / 2];
@@ -58,9 +58,9 @@ fn void part2()
 			CharSet set2;
 			set.tinit();
 			set2.tinit();
-			String line1 = f.treadline();
-			String line2 = f.treadline();
-			String line3 = f.treadline();
+			String line1 = io::treadline(&f)!!;
+			String line2 = io::treadline(&f)!!;
+			String line3 = io::treadline(&f)!!;
 
 			assert(line1.len && line2.len && line3.len);
 

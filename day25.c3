@@ -60,7 +60,7 @@ fn void part1()
 	{
 		@pool()
         {
-        	String line = f.treadline();
+        	String line = io::treadline(&f)!!;
         	total += snafu_to_long(line);
         };
 	}

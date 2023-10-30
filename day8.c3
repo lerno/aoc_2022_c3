@@ -2,7 +2,8 @@ module day8;
 import std::collections::list;
 import std::io;
 
-def Forest = distinct inline List(<String>);
+distinct Forest = inline List(<String>);
+
 fn Forest* parse_forest()
 {
 	File f = file::open("forest.txt", "rb")!!;
@@ -11,7 +12,7 @@ fn Forest* parse_forest()
 	forest.init(512);
 	while (!f.eof())
 	{
-		String line = f.treadline();
+		String line = io::treadline(&f)!!;
 		assert(line.len);
 		forest.append(line);
 	}
@@ -67,28 +68,28 @@ fn int Forest.scenic_score(Forest* this, int x, int y)
 	char height = row[x];
 	int scenic_score;
 	int score = 0;
-	for (isz fx = x - 1; fx >= 0; fx--)
+	for (int fx = x - 1; fx >= 0; fx--)
     {
         score++;
         if (row[fx] >= height) break;
     }
     scenic_score = score;
     score = 0;
-	for (isz fx = x + 1; fx <= last_x; fx++)
+	for (isz fx = (isz)x + 1; fx <= last_x; fx++)
     {
         score++;
         if (row[fx] >= height) break;
     }
     scenic_score *= score;
     score = 0;
-	for (isz fy = y - 1; fy >= 0; fy--)
+	for (isz fy = (isz)y - 1; fy >= 0; fy--)
 	{
 		score++;
         if (this.get(fy)[x] >= height) break;
 	}
     scenic_score *= score;
     score = 0;
-	for (isz fy = y + 1; fy <= last_y; fy++)
+	for (isz fy = (isz)y + 1; fy <= last_y; fy++)
 	{
 		score++;
         if (this.get(fy)[x] >= height) break;

@@ -15,7 +15,7 @@ fn void load_lava()
 	{
 		@pool()
 		{
-			String[] parts = f.treadline().tsplit(",");
+			String[] parts = io::treadline(&f)!!.tsplit(",");
 			locations[parts[0].to_int()!!][parts[1].to_int()!!][parts[2].to_int()!!] = 7;
 		};
 	}

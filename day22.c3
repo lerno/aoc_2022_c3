@@ -32,7 +32,7 @@ fn void load_map()
 	{
 		@pool()
 		{
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			if (line.len > width) width = line.len;
 			if (!line.len) break;
 			foreach (int x, c : line)
@@ -59,7 +59,7 @@ fn void load_map()
 	height = y;
 	side = y > width ? y / 4 : width / 4;
 	width_spaces = width / side;
-	commands = f.treadline().copy();
+	commands = io::treadline(&f)!!.copy();
 }
 
 fn int region_from_pos(int[<2>] pos)
@@ -241,9 +241,9 @@ fn void part1()
 			if (pos[1] == -1) pos[1] = height - 1;
 			switch (map_at(pos))
 			{
-				case MapType.SPACE:
+				case SPACE:
 					continue WALK;
-				case MapType.VOID:
+				case VOID:
 					switch
 					{
 						case move[0] > 0: pos[0] = 0;
@@ -254,14 +254,16 @@ fn void part1()
 					while (map_at(pos) == MapType.VOID) pos += move;
 					switch (map_at(pos))
 					{
-						case MapType.BLOCK:
+						case BLOCK:
 							pos = old;
 							break WALK;
-						case MapType.SPACE:
+						case SPACE:
 							continue WALK;
+						default:
+							break;
 					}
 					unreachable();
-				case MapType.BLOCK:
+				case BLOCK:
 					pos = old;
 					break WALK;
 				default:
@@ -313,22 +315,24 @@ fn void part2()
 				wrap(&pos, &wrap_facing);
 				switch (map_at(pos))
 				{
-					case MapType.BLOCK:
+					case BLOCK:
 						pos = old;
 						break WALK;
-					case MapType.SPACE:
+					case SPACE:
 						facing = wrap_facing;
 						move = facing_diff(facing);
 						continue WALK;
+					default:
+						break;
 				}
 			}
 			switch (map_at(pos))
 			{
-				case MapType.SPACE:
+				case SPACE:
 					continue WALK;
-				case MapType.VOID:
+				case VOID:
 					unreachable();
-				case MapType.BLOCK:
+				case BLOCK:
 					pos = old;
 					break WALK;
 				default:

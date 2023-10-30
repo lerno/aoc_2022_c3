@@ -39,7 +39,7 @@ fn void load_blueprints()
 		@pool()
 		{
 			Blueprint print;
-			String line = f.treadline();
+			String line = io::treadline(&f)!!;
 			String[] split = line.tsplit("Each ore robot costs ");
 			split = split[1].tsplit(" ore. Each clay robot costs ");
 			print.ore_cost = { [ORE] = split[0].to_int()!! };
