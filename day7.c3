@@ -59,7 +59,7 @@ fn void parse_dir(Directory *top)
 		}
 		if (line[0..2] == "dir")
 		{
-			Directory *new_dir = tmalloc(Directory);
+			Directory *new_dir = mem::new_temp(Directory);
 			*new_dir = { .name = line[4..], .parent_dir = current_dir };
 			current_dir.other_dirs.append(new_dir);
 			continue;

@@ -8,8 +8,8 @@ fn Forest* parse_forest()
 {
 	File f = file::open("forest.txt", "rb")!!;
 	defer (void)f.close();
-	Forest* forest = malloc(Forest);
-	forest.init(512);
+	Forest* forest = mem::new(Forest);
+	forest.init_new(512);
 	while (!f.eof())
 	{
 		String line = io::treadline(&f)!!;

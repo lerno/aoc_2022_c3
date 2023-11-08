@@ -8,7 +8,7 @@ const MAX_PILES = 20;
 
 fn int init_piles(CharList[MAX_PILES]* piles, File* f)
 {
-	foreach (CharList* &list : piles) list.init();
+	foreach (CharList* &list : piles) list.init_new();
 	int piles_used = 0;
 	while (!f.eof())
 	{

@@ -55,8 +55,8 @@ fn void solve(int key, int mixes)
 {
 	LongList list;
 	LongList pos;
-	list.init();
-	pos.init();
+	list.init_new();
+	pos.init_new();
 	defer pos.free();
 	defer list.free();
 	load_crypto(&list, &pos, key);
