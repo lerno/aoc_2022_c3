@@ -37,7 +37,7 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 	File f = file::open("monkeys.txt", "rb")!!;
 	defer (void)f.close();
 	NameMap map;
-	map.init_new();
+	map.new_init();
 	defer map.free();
 	MonkeyId index = 0;
 	while (!f.eof())
@@ -177,7 +177,7 @@ fn void part2(Monkey* root, Monkey* humn)
 fn void main()
 {
 	MonkeyList list;
-	list.init_new();
+	list.new_init();
 	MonkeyId root_index;
 	MonkeyId humn_index;
 	load_monkeys(&list, &root_index, &humn_index);

@@ -73,8 +73,7 @@ fn int parse_list(void* list1, String list_inner)
 				if (c < '0' || c > '9') break;
 				index++;
 			}
-			PacketElement* element = mem::new(PacketElement);
-			*element = { .is_subpacket = false, .value = list_inner[start..(index - 1)].to_int()!! };
+			PacketElement* element = mem::new(PacketElement, { .is_subpacket = false, .value = list_inner[start..(index - 1)].to_int()!! });
 			packet.append(element);
 			if (index == len) return len;
 			if (c == ']') return index + 1;
@@ -85,9 +84,9 @@ fn int parse_list(void* list1, String list_inner)
 		if (c == ']') return index + 1;
 		assert(c == '[');
 		index++;
-		PacketElement* element = mem::new(PacketElement);
-		Packet* inner_list = mem::new(Packet);
-		inner_list.init_new();
+		PacketElement* element = mem::alloc(PacketElement);
+		Packet* inner_list = mem::alloc(Packet);
+		inner_list.new_init();
 		index += parse_list(inner_list, list_inner[index..]);
 		*element = { .is_subpacket = true, .packet = inner_list };
 		packet.append(element);
@@ -103,8 +102,8 @@ fn int parse_list(void* list1, String list_inner)
 fn Packet* packet_from_line(String line)
 {
 	assert(line[0] == '[' && line[^1] == ']');
-	Packet* packet = mem::new(Packet);
-	packet.init_new();
+	Packet* packet = mem::alloc(Packet);
+	packet.new_init();
 	parse_list(packet, line[1..]);
 	return packet;
 }
@@ -112,8 +111,8 @@ fn PacketPairs* load_packets()
 {
 	File f = file::open("packets.txt", "rb")!!;
 	defer (void)f.close();
-	PacketPairs* packet = mem::new(PacketPairs);
-	packet.init_new();
+	PacketPairs* packet = mem::alloc(PacketPairs);
+	packet.new_init();
 	while (!f.eof())
 	{
 		@pool()
@@ -207,13 +206,13 @@ fn void insert_packet(PacketList* list, Packet* new_packet)
 
 fn Packet* create_div(int value)
 {
-	Packet* packet = mem::new(Packet);
-	packet.init_new();
-	PacketElement* element = mem::new(PacketElement);
-	Packet* inner_packet = mem::new(Packet);
+	Packet* packet = mem::alloc(Packet);
+	packet.new_init();
+	PacketElement* element = mem::alloc(PacketElement);
+	Packet* inner_packet = mem::alloc(Packet);
 	*element = { .is_subpacket = true, .packet = inner_packet };
-	inner_packet.init_new();
-	PacketElement* element_inner = mem::new(PacketElement);
+	inner_packet.new_init();
+	PacketElement* element_inner = mem::alloc(PacketElement);
 	*element_inner = { .value = value };
 	inner_packet.append(element_inner);
 	packet.append(element);
@@ -222,7 +221,7 @@ fn Packet* create_div(int value)
 fn void part2(PacketPairs* packets)
 {
 	PacketList queue;
-	queue.init_new();
+	queue.new_init();
 	foreach NEXT: (pair : *packets)
 	{
 		insert_packet(&queue, pair.p1);

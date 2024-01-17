@@ -21,7 +21,7 @@ fn void part1()
 		@pool()
 		{
 			CharSet set;
-			set.init_temp();
+			set.temp_init();
 			set.clear();
 			String line = io::treadline(&f)!!;
 			assert(line.len % 2 == 0 && line.len > 0);
@@ -56,8 +56,8 @@ fn void part2()
 		{
 			CharSet set;
 			CharSet set2;
-			set.init_temp();
-			set2.init_temp();
+			set.temp_init();
+			set2.temp_init();
 			String line1 = io::treadline(&f)!!;
 			String line2 = io::treadline(&f)!!;
 			String line3 = io::treadline(&f)!!;

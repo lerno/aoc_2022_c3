@@ -16,7 +16,7 @@ fn CoordPairList load_sensors()
 	File f = file::open("sensor.txt", "rb")!!;
 	defer (void)f.close();
 	CoordPairList list;
-	list.init_new();
+	list.new_init();
 	while (!f.eof())
 	{
 		@pool()
@@ -50,7 +50,7 @@ fn void part1(CoordPairList list)
 		if (i == 0 || max > max_x) max_x = max;
 	}
 	int width = max_x - min_x + 1;
-	bool[] array = mem::temp_zero_array(bool, width);
+	bool[] array = mem::temp_new_array(bool, width);
 	foreach (pair : list)
 	{
 		int[<2>] sensor_at = pair[0];

@@ -32,7 +32,7 @@ struct GameState
 fn void load_blueprints()
 {
 	File f = file::open("blueprint.txt", "rb")!!;
-	blueprints.init_new();
+	blueprints.new_init();
 	defer (void)f.close();
 	while (!f.eof())
 	{

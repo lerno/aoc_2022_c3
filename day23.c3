@@ -35,7 +35,7 @@ fn void load_map(CharsArray* list)
 			list.append(line.tconcat((String)&spacing).copy());
 		};
 	}
-	String top_line = (String)mem::new_array(char, width + PADDING * 2);
+	String top_line = (String)mem::alloc_array(char, width + PADDING * 2);
 	top_line[..] = '.';
 	for (int i = 0; i < PADDING; i++)
 	{
@@ -187,7 +187,7 @@ fn void count_empty_tiles(CharsArray list)
 fn void part1()
 {
 	CharsArray list;
-	list.init_new();
+	list.new_init();
 	load_map(&list);
 	for (int i = 0; i < 10; i++)
 	{
@@ -199,7 +199,7 @@ fn void part1()
 fn void part2()
 {
 	CharsArray list;
-	list.init_new();
+	list.new_init();
 	load_map(&list);
 	for (int i = 0;; i++)
 	{

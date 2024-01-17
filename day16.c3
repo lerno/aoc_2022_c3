@@ -167,7 +167,7 @@ fn void part2(Valve[] valves, int start)
 
 fn void main()
 {
-	v.init_new();
+	v.new_init();
 	int start = -1;
 	Valve[] valves = load_valves(&&Valve[100] {});
 	foreach (int i, valve : valves)

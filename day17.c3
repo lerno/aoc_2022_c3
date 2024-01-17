@@ -217,7 +217,7 @@ fn void solve(String winds, long rocks)
 	isz wind_index = 0;
 	long offset = 0;
 	StateCacheMap map;
-	map.init_new(1024);
+	map.new_init(1024);
 	long max = rocks;
 	bool check_cache = true;
 	long desired_drops = rocks;
