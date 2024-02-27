@@ -26,7 +26,7 @@ fn CoordPairList load_sensors()
 			String[] parts = line.tsplit(": closest beacon is at x=");
 			int[<2>] sensor_at = parse_coord(parts[0])!!;
 			int[<2>] beacon_at = parse_coord(parts[1])!!;
-			list.append( { sensor_at, beacon_at });
+			list.push( { sensor_at, beacon_at });
        };
     }
     return list;

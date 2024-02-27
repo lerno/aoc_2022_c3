@@ -32,7 +32,7 @@ fn void load_map(CharsArray* list)
 			String line = io::treadline(&f)!!;
 			width = line.len;
 			line = ((String)&spacing).tconcat(line);
-			list.append(line.tconcat((String)&spacing).copy());
+			list.push(line.tconcat((String)&spacing).copy());
 		};
 	}
 	String top_line = (String)mem::alloc_array(char, width + PADDING * 2);
@@ -40,7 +40,7 @@ fn void load_map(CharsArray* list)
 	for (int i = 0; i < PADDING; i++)
 	{
 		list.insert_at(0, top_line.copy());
-		list.append(top_line.copy());
+		list.push(top_line.copy());
 	}
 }
 

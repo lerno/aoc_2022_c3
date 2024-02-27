@@ -78,7 +78,7 @@ fn void load_monkeys(MonkeyList* list, MonkeyId* root_index, MonkeyId *humn_inde
 				}
 			}
 			map.set(name, index++);
-			list.append(m);
+			list.push(m);
 		};
 	}
 	foreach (&monkey : list)

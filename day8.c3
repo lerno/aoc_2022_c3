@@ -14,7 +14,7 @@ fn Forest* parse_forest()
 	{
 		String line = io::treadline(&f)!!;
 		assert(line.len);
-		forest.append(line);
+		forest.push(line);
 	}
 	return forest;
 }

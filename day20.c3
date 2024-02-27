@@ -15,8 +15,8 @@ fn void load_crypto(LongList* list, LongList* pos, long key)
 		@pool()
 		{
 			String line = io::treadline(&f)!!;
-			list.append(key * line.to_long()!!);
-			pos.append((int)pos.len());
+			list.push(key * line.to_long()!!);
+			pos.push((int)pos.len());
 		};
 	}
 }

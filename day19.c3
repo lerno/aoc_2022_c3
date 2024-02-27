@@ -57,7 +57,7 @@ fn void load_blueprints()
 				[OBSIDIAN] = split2[1][..^11].to_int()!!
  			};
  			print.max_cost = math::max(math::max(math::max(print.geode_cost, print.obsidian_cost), print.clay_cost), print.ore_cost);
-			blueprints.append(print);
+			blueprints.push(print);
 		};
 	}
 }

@@ -74,7 +74,7 @@ fn int parse_list(void* list1, String list_inner)
 				index++;
 			}
 			PacketElement* element = mem::new(PacketElement, { .is_subpacket = false, .value = list_inner[start..(index - 1)].to_int()!! });
-			packet.append(element);
+			packet.push(element);
 			if (index == len) return len;
 			if (c == ']') return index + 1;
 			assert(c == ',');
@@ -89,7 +89,7 @@ fn int parse_list(void* list1, String list_inner)
 		inner_list.new_init();
 		index += parse_list(inner_list, list_inner[index..]);
 		*element = { .is_subpacket = true, .packet = inner_list };
-		packet.append(element);
+		packet.push(element);
 		if (index == len) return len;
 		c = list_inner[index];
 		if (c == ']') return index + 1;
@@ -119,7 +119,7 @@ fn PacketPairs* load_packets()
 		{
 			Packet* first = packet_from_line(io::treadline(&f)!!);
 			Packet* second = packet_from_line(io::treadline(&f)!!);
-			packet.append({ first, second });
+			packet.push({ first, second });
 			if (!f.eof()) io::treadline(&f)!!;
         };
     }
@@ -201,7 +201,7 @@ fn void insert_packet(PacketList* list, Packet* new_packet)
 			return;
 		}
 	}
-	list.append(new_packet);
+	list.push(new_packet);
 }
 
 fn Packet* create_div(int value)
@@ -214,8 +214,8 @@ fn Packet* create_div(int value)
 	inner_packet.new_init();
 	PacketElement* element_inner = mem::alloc(PacketElement);
 	*element_inner = { .value = value };
-	inner_packet.append(element_inner);
-	packet.append(element);
+	inner_packet.push(element_inner);
+	packet.push(element);
 	return packet;
 }
 fn void part2(PacketPairs* packets)

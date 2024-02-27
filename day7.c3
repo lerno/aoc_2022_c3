@@ -60,7 +60,7 @@ fn void parse_dir(Directory *top)
 		if (line[0..2] == "dir")
 		{
 			Directory *new_dir = mem::temp_new(Directory, { .name = line[4..], .parent_dir = current_dir });
-			current_dir.other_dirs.append(new_dir);
+			current_dir.other_dirs.push(new_dir);
 			continue;
 		}
 		String[] split = line.tsplit(" ");

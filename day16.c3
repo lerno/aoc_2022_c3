@@ -78,7 +78,7 @@ fn Valve[] load_valves(Valve[100]* available_slots)
         if (!v.rate) continue;
         foreach (&v2 : valves)
         {
-            v2.list.append({ i, v2.tunnel_cost[i] });
+            v2.list.push({ i, v2.tunnel_cost[i] });
         }
     }
     assert(count == v.count);

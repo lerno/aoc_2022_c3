@@ -89,7 +89,7 @@ fn Map* load_heightmap()
 					continue;
 				}
 			}
-			map.map.append(line);
+			map.map.push(line);
         };
     }
     return map;
